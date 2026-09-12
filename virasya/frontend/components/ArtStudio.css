@@ -1,0 +1,573 @@
+/* =========================================================
+   VIRASYA TRADITIONAL ART STUDIO CSS
+   Sacred Indian Aesthetics, Glassmorphism & Gold Highlights
+   ========================================================= */
+
+:root {
+  --studio-gold: #d4af37;
+  --studio-gold-glow: rgba(212, 175, 55, 0.4);
+  --studio-bg: #0c0b09;
+  --studio-panel: rgba(24, 20, 16, 0.88);
+  --studio-panel-border: rgba(212, 175, 55, 0.25);
+  --studio-text: #f5eedb;
+  --studio-muted: #bda78d;
+  --studio-accent: #c65a16;
+  --studio-crimson: #e63946;
+}
+
+.art-studio-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 20%, #1c150e 0%, #0c0b09 100%);
+  color: var(--studio-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* 1. Header Bar */
+.art-studio-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: rgba(18, 14, 11, 0.92);
+  border-bottom: 1px solid var(--studio-panel-border);
+  backdrop-filter: blur(12px);
+  z-index: 20;
+}
+
+.art-studio-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--studio-gold), var(--studio-accent));
+  color: #0c0b09;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 0 15px var(--studio-gold-glow);
+}
+
+.studio-title {
+  font-family: 'Cinzel', serif;
+  font-size: 17px;
+  letter-spacing: 1.5px;
+  margin: 0;
+  color: var(--studio-gold);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.studio-subtitle {
+  font-size: 11px;
+  color: var(--studio-muted);
+  margin: 2px 0 0 0;
+  letter-spacing: 0.5px;
+}
+
+/* Mode Selector Tabs */
+.mode-tabs {
+  display: flex;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  border-radius: 30px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.mode-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: transparent;
+  color: var(--studio-muted);
+  border: none;
+  border-radius: 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.mode-tab:hover {
+  color: var(--studio-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.mode-tab.active {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(198, 90, 22, 0.4));
+  color: #ffffff;
+  border: 1px solid var(--studio-gold);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+/* Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.action-icon-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  color: var(--studio-text);
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-icon-btn:hover:not(:disabled) {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--studio-gold);
+  transform: translateY(-1px);
+}
+
+.action-icon-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.action-icon-btn.danger:hover {
+  background: rgba(230, 57, 70, 0.25);
+  border-color: var(--studio-crimson);
+  color: #ff9999;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--studio-muted);
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #ffffff;
+}
+
+/* 2. Main Studio Workspace Layout */
+.art-studio-workspace {
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  flex: 1;
+  overflow: hidden;
+  height: calc(100vh - 65px);
+}
+
+/* Sidebars */
+.art-studio-sidebar {
+  background: var(--studio-panel);
+  backdrop-filter: blur(16px);
+  padding: 18px 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 10;
+}
+
+.art-studio-sidebar.left {
+  border-right: 1px solid var(--studio-panel-border);
+}
+
+.art-studio-sidebar.right {
+  border-left: 1px solid var(--studio-panel-border);
+}
+
+/* Control Groups */
+.control-group {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.group-label {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--studio-gold);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.value-badge {
+  background: rgba(212, 175, 55, 0.2);
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Symmetry Presets */
+.symmetry-presets {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+}
+
+.chip-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--studio-text);
+  border-radius: 6px;
+  padding: 6px 0;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chip-btn:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--studio-gold);
+}
+
+.chip-btn.active {
+  background: var(--studio-gold);
+  color: #0c0b09;
+  font-weight: 700;
+  border-color: var(--studio-gold);
+}
+
+/* Sliders */
+.studio-slider {
+  width: 100%;
+  accent-color: var(--studio-gold);
+  height: 5px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+/* Checkboxes */
+.checkbox-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--studio-text);
+  cursor: pointer;
+}
+
+.checkbox-control input[type="checkbox"] {
+  accent-color: var(--studio-gold);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+/* Brush Grid */
+.brush-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.brush-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--studio-text);
+  font-size: 11.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.brush-chip:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--studio-gold);
+}
+
+.brush-chip.active {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: var(--studio-gold);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.b-icon {
+  font-size: 14px;
+}
+
+/* Theme Chips */
+.theme-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.theme-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: var(--studio-muted);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-chip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--studio-text);
+}
+
+.theme-chip.active {
+  border-color: var(--studio-gold);
+  color: #fff;
+  background: rgba(212, 175, 55, 0.15);
+  font-weight: 600;
+}
+
+.theme-color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* 3. Center Canvas Viewport */
+.art-canvas-viewport {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #080706;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.canvas-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(212, 175, 55, 0.35);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.drawing-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+}
+
+.guide-canvas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.canvas-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 680px;
+  margin-top: 14px;
+  padding: 0 6px;
+}
+
+.mode-desc-tag {
+  font-size: 11.5px;
+  color: var(--studio-muted);
+  font-style: italic;
+}
+
+/* 4. Right Sidebar: Colors & Presets */
+.color-palette-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.color-swatch {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+  border-color: #ffffff;
+}
+
+.color-swatch.active {
+  transform: scale(1.12);
+  border-color: #ffffff;
+  box-shadow: 0 0 12px var(--studio-gold);
+}
+
+/* Custom Color Picker */
+.custom-color-picker {
+  position: relative;
+  margin-top: 6px;
+}
+
+.color-input-native {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.custom-color-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.custom-preview {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Template Buttons */
+.template-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.template-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  color: var(--studio-text);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.template-btn:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--studio-gold);
+  transform: translateX(3px);
+}
+
+/* Export Buttons */
+.export-section {
+  margin-top: auto;
+}
+
+.export-btn {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.export-btn.primary {
+  background: linear-gradient(135deg, var(--studio-gold), #b87333);
+  color: #0c0b09;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+  margin-bottom: 6px;
+}
+
+.export-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  filter: brightness(1.1);
+}
+
+.export-btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--studio-text);
+}
+
+.export-btn.secondary:hover {
+  background: rgba(212, 175, 55, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1080px) {
+  .art-studio-workspace {
+    grid-template-columns: 240px 1fr 240px;
+  }
+}
+
+@media (max-width: 860px) {
+  .art-studio-workspace {
+    grid-template-columns: 1fr;
+    height: auto;
+    overflow-y: auto;
+  }
+  .art-studio-sidebar {
+    height: auto;
+  }
+  .art-canvas-viewport {
+    order: -1;
+  }
+  .canvas-wrapper {
+    max-width: 90vw;
+  }
+}

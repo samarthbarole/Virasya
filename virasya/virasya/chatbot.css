@@ -1,0 +1,509 @@
+/* =======================================================
+   VIRASYA AI GUIDE — Cultural Chatbot Styling
+   Theme: Antique Indian Parchment, Haldi, Gold & Terracotta
+======================================================= */
+
+:root {
+  --vir-primary: #D97706;
+  --vir-haldi: #E8A317;
+  --vir-gold: #B8860B;
+  --vir-gold-light: #F7D57F;
+  --vir-parchment: #F6E7C1;
+  --vir-cream: #FFF8E7;
+  --vir-dark-brown: #3B1F0B;
+  --vir-deep-brown: #241207;
+  --vir-shadow: rgba(36, 18, 7, 0.25);
+  --vir-glow: rgba(232, 163, 23, 0.45);
+}
+
+/* ================= FLOATING BUTTON ================= */
+.virasya-chat-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--vir-haldi) 0%, var(--vir-primary) 100%);
+  border: 2px solid var(--vir-gold-light);
+  box-shadow: 0 8px 24px var(--vir-glow), 0 4px 12px rgba(36, 18, 7, 0.35);
+  cursor: pointer;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--vir-cream);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  outline: none;
+  user-select: none;
+  animation: virFloatPulse 3.5s infinite ease-in-out;
+}
+
+.virasya-chat-float:hover {
+  transform: scale(1.1) translateY(-4px);
+  box-shadow: 0 14px 30px rgba(232, 163, 23, 0.65), 0 6px 16px rgba(36, 18, 7, 0.45);
+  border-color: #ffffff;
+}
+
+.virasya-chat-float .chat-badge-pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--vir-haldi);
+  opacity: 0.6;
+  animation: virPing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes virFloatPulse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes virPing {
+  75%, 100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* ================= CHAT PANEL ================= */
+.virasya-chat-panel {
+  position: fixed;
+  bottom: 100px;
+  right: 28px;
+  width: 400px;
+  max-width: calc(100vw - 36px);
+  height: 590px;
+  max-height: calc(100vh - 125px);
+  background: var(--vir-cream);
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(232, 163, 23, 0.08), transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(217, 119, 6, 0.06), transparent 40%);
+  border: 2px solid var(--vir-gold);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(36, 18, 7, 0.45), 0 0 25px rgba(232, 163, 23, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 99998;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(24px) scale(0.95);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: 'Poppins', sans-serif;
+  color: var(--vir-dark-brown);
+}
+
+.virasya-chat-panel.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.virasya-chat-panel.minimized {
+  height: 64px !important;
+  overflow: hidden;
+}
+
+/* ================= HEADER ================= */
+.vir-chat-header {
+  background: linear-gradient(135deg, #241207 0%, #3B1F0B 50%, #241207 100%);
+  color: var(--vir-cream);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--vir-gold);
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  user-select: none;
+}
+
+.vir-chat-header::before {
+  content: "❖ ❖ ❖";
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  letter-spacing: 4px;
+  color: rgba(232, 163, 23, 0.35);
+  pointer-events: none;
+}
+
+.vir-header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vir-header-icon {
+  font-size: 24px;
+  filter: drop-shadow(0 0 6px rgba(232, 163, 23, 0.6));
+  animation: virLotusSway 4s ease-in-out infinite;
+}
+
+@keyframes virLotusSway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg) scale(1.05); }
+}
+
+.vir-header-text h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 14.5px;
+  letter-spacing: 1.5px;
+  color: #FFD66B;
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.vir-header-text span {
+  font-size: 10px;
+  color: #E6D4B9;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.vir-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vir-icon-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(232, 163, 23, 0.3);
+  color: #F7D57F;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.vir-icon-btn:hover {
+  background: rgba(232, 163, 23, 0.35);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+/* ================= STATE CONTEXT BANNER ================= */
+.vir-state-banner {
+  background: var(--vir-parchment);
+  border-bottom: 1px dashed var(--vir-gold);
+  padding: 6px 16px;
+  font-size: 11px;
+  color: var(--vir-dark-brown);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+}
+
+.vir-state-banner span {
+  color: var(--vir-primary);
+  font-weight: 700;
+}
+
+/* ================= CHAT BODY ================= */
+.vir-chat-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--vir-cream);
+  scrollbar-width: thin;
+  scrollbar-color: var(--vir-gold) var(--vir-cream);
+}
+
+.vir-chat-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+.vir-chat-body::-webkit-scrollbar-thumb {
+  background: var(--vir-gold);
+  border-radius: 4px;
+}
+
+/* Message Bubble */
+.vir-msg {
+  display: flex;
+  flex-direction: column;
+  max-width: 88%;
+  animation: virMsgIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes virMsgIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vir-msg.user {
+  align-self: flex-end;
+}
+
+.vir-msg.bot {
+  align-self: flex-start;
+}
+
+.vir-bubble {
+  padding: 12px 15px;
+  border-radius: 16px;
+  font-size: 13px;
+  line-height: 1.55;
+  box-shadow: 0 2px 8px rgba(36, 18, 7, 0.08);
+  position: relative;
+  word-break: break-word;
+}
+
+.vir-msg.user .vir-bubble {
+  background: linear-gradient(135deg, var(--vir-primary), var(--vir-dark-brown));
+  color: #FFF9EE;
+  border-bottom-right-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.vir-msg.bot .vir-bubble {
+  background: #FFFDF7;
+  color: var(--vir-dark-brown);
+  border: 1.5px solid #E4CD9E;
+  border-bottom-left-radius: 4px;
+}
+
+.vir-msg.bot .vir-bubble strong {
+  color: #8C3E07;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+}
+
+.vir-msg.bot .vir-bubble p {
+  margin: 6px 0;
+}
+
+.vir-msg.bot .vir-bubble p:first-child {
+  margin-top: 0;
+}
+
+.vir-msg.bot .vir-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+/* Action Buttons inside Bot Message */
+.vir-action-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.vir-action-btn {
+  background: linear-gradient(135deg, #FFF6E0 0%, #F5DFB2 100%);
+  border: 1.5px solid var(--vir-gold);
+  color: var(--vir-dark-brown);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 11.5px;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 2px 6px rgba(184, 134, 11, 0.15);
+  text-decoration: none;
+}
+
+.vir-action-btn:hover {
+  background: linear-gradient(135deg, var(--vir-haldi), var(--vir-primary));
+  color: #ffffff;
+  border-color: #ffffff;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
+}
+
+.vir-action-btn::after {
+  content: "→";
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.vir-action-btn:hover::after {
+  transform: translateX(3px);
+}
+
+/* Suggestions Container */
+.vir-suggestions-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.vir-chip {
+  background: #FFF3D6;
+  border: 1px solid #D9B56C;
+  color: #5E2B08;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 11px;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.vir-chip:hover {
+  background: var(--vir-haldi);
+  color: #ffffff;
+  border-color: var(--vir-haldi);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(232, 163, 23, 0.35);
+}
+
+/* ================= TYPING INDICATOR ================= */
+.vir-typing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #FFFDF7;
+  border: 1.5px solid #E4CD9E;
+  border-radius: 16px;
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+  font-size: 11px;
+  color: #7A5333;
+  font-style: italic;
+  font-family: 'Cinzel', serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  animation: virMsgIn 0.2s ease;
+}
+
+.vir-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.vir-dots span {
+  width: 5px;
+  height: 5px;
+  background: var(--vir-primary);
+  border-radius: 50%;
+  animation: virDotBounce 1.4s infinite ease-in-out both;
+}
+
+.vir-dots span:nth-child(1) { animation-delay: -0.32s; }
+.vir-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes virDotBounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ================= INPUT AREA ================= */
+.vir-chat-footer {
+  padding: 12px 14px;
+  background: #FFF6E2;
+  border-top: 1.5px solid var(--vir-gold);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.vir-input-box {
+  flex: 1;
+  height: 42px;
+  background: #FFFFFF;
+  border: 1.5px solid #D9B56C;
+  border-radius: 25px;
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 12.5px;
+  color: var(--vir-dark-brown);
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.vir-input-box:focus {
+  border-color: var(--vir-primary);
+  box-shadow: 0 0 10px rgba(217, 119, 6, 0.25);
+}
+
+.vir-input-box::placeholder {
+  color: #A38466;
+}
+
+.vir-send-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--vir-haldi), var(--vir-primary));
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  outline: none;
+  box-shadow: 0 3px 10px rgba(217, 119, 6, 0.35);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.vir-send-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 14px rgba(217, 119, 6, 0.55);
+}
+
+.vir-send-btn:active {
+  transform: scale(0.95);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+  .virasya-chat-panel {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    border: none;
+  }
+  .virasya-chat-float {
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+  }
+}

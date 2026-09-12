@@ -1,0 +1,14 @@
+{
+  "name": "virasya-workspace",
+  "version": "1.0.0",
+  "description": "VIRASYA — Culture. Heritage. Legacy. Platform",
+  "main": "virasya/backend/server.js",
+  "scripts": {
+    "start": "node virasya/backend/server.js",
+    "dev": "node --watch virasya/backend/server.js",
+    "server": "node virasya/backend/server.js"
+  },
+  "keywords": ["virasya", "heritage", "india", "culture"],
+  "author": "",
+  "license": "ISC"
+}

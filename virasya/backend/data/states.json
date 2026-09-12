@@ -1,0 +1,63 @@
+[
+  {
+    "id": "maharashtra",
+    "name": "Maharashtra",
+    "capital": "Mumbai",
+    "image": "https://images.unsplash.com/photo-1600100397608-f010b8e3d4e4?auto=format&fit=crop&w=800&q=80",
+    "description": "The land of Chhatrapati Shivaji Maharaj, dynamic coastline, Sahyadri mountain forts, and ancient UNESCO rock-cut wonders of Ajanta and Ellora.",
+    "heritage": "Ajanta & Ellora Caves, Gateway of India, Raigad Fort, Elephanta Caves",
+    "art": "Warli Tribal Painting, Paithani Silk Weaving",
+    "festivals": "Ganesh Chaturthi, Gudi Padwa, Banganga Festival",
+    "cuisine": "Puran Poli, Misal Pav, Modak, Vada Pav",
+    "targetSection": "#heritage"
+  },
+  {
+    "id": "rajasthan",
+    "name": "Rajasthan",
+    "capital": "Jaipur",
+    "image": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=800&q=80",
+    "description": "The Land of Kings, legendary palaces, golden desert dunes, vibrant folk dances, and grand fortified citadels echoing royal valor.",
+    "heritage": "Amer Fort, Hawa Mahal, Mehrangarh Fort, City Palace",
+    "art": "Jaipur Blue Pottery, Bandhani Textiles, Miniature Painting",
+    "festivals": "Pushkar Camel Fair, Teej, Desert Festival, Gangaur",
+    "cuisine": "Dal Baati Churma, Gatte ki Sabzi, Ker Sangri, Ghevar",
+    "targetSection": "#crafts"
+  },
+  {
+    "id": "punjab",
+    "name": "Punjab",
+    "capital": "Chandigarh",
+    "image": "https://images.unsplash.com/photo-1561350112-7b1f5f7d7d2a?auto=format&fit=crop&w=800&q=80",
+    "description": "The Land of Five Rivers, known for its warm hospitality, golden wheat fields, divine Golden Temple, and high-energy Bhangra beats.",
+    "heritage": "Golden Temple (Sri Harmandir Sahib), Jallianwala Bagh, Wagah Border",
+    "art": "Phulkari Embroidery, Punjabi Jutti Crafts, Wood Carving",
+    "festivals": "Baisakhi, Lohri, Gurpurab, Holla Mohalla",
+    "cuisine": "Makki di Roti & Sarson da Saag, Butter Chicken, Lassi, Amritsari Kulcha",
+    "targetSection": "#festivals"
+  },
+  {
+    "id": "uttarakhand",
+    "name": "Uttarakhand",
+    "capital": "Dehradun",
+    "image": "https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80",
+    "description": "The Devbhumi (Land of the Gods), nestled in the serene Himalayas with sacred rivers, revered pilgrimage routes, and pristine alpine valleys.",
+    "heritage": "Badrinath & Kedarnath Temples, Valley of Flowers, Rishikesh Ghats",
+    "art": "Aipan Ritual Art, Ringal Bamboo Craft, Wood Inlay",
+    "festivals": "Kumbh Mela, Ganga Dussehra, Phool Dei, Harela",
+    "cuisine": "Kafuli, Chainsoo, Bal Mithai, Singori",
+    "targetSection": "#culture",
+    "pageUrl": "uttarakhand.html"
+  },
+  {
+    "id": "jharkhand",
+    "name": "Jharkhand",
+    "capital": "Ranchi",
+    "image": "https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=800&q=80",
+    "description": "The Land of Forests, blessed with cascading waterfalls, rich tribal traditions, sacred hills, and ancient indigenous folklore.",
+    "heritage": "Baidyanath Dham, Parasnath Hills, Hundru Falls, Maluti Temples",
+    "art": "Sohrai & Khovar Murals, Dokra Metal Casting, Bamboo Crafts",
+    "festivals": "Sarhul, Karam Festival, Tusu Parab, Jawa Festival",
+    "cuisine": "Dhuska, Rugra, Litti Chokha, Pitha",
+    "targetSection": "#culture"
+  }
+]

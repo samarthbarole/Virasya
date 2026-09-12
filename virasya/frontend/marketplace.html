@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRASYA | Artisan Marketplace — Authentic Indian Handicrafts & Handlooms</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/marketplace.css">
+    <!-- Chatbot Stylesheet -->
+    <link rel="stylesheet" href="css/chatbot.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+        <a href="index.html" class="logo-section">
+            <div class="logo-symbol">
+                ॐ
+            </div>
+            <div>
+                <h2>VIRASYA</h2>
+                <span>Culture. Heritage. Legacy.</span>
+            </div>
+        </a>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="index.html#map">EXPLORE STATES</a>
+            <a href="index.html#culture">CULTURE</a>
+            <a href="index.html#heritage">HERITAGE SITES</a>
+            <a href="index.html#festivals">FESTIVALS</a>
+            <a class="active" href="marketplace.html">ART & CRAFTS</a>
+            <a href="simulator.html">SIMULATOR</a>
+            <a href="index.html#about">ABOUT</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button onclick="document.getElementById('searchInput').focus()" title="Search Crafts">
+                <i data-lucide="search"></i>
+            </button>
+
+            <button onclick="showToast('Your saved wishlist is synchronized!')" title="Wishlist">
+                <i data-lucide="heart"></i>
+            </button>
+
+            <button class="cart-button" onclick="showToast(`You have ${cart} items in your bag.`)" title="Shopping Bag">
+                <i data-lucide="shopping-bag"></i>
+                <span id="cartCount">0</span>
+            </button>
+
+            <a href="index.html" title="Return to Main Map">
+                <button>
+                    <i data-lucide="map-pin"></i>
+                </button>
+            </a>
+        </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <p class="small-title">✦ THE ARTISAN MARKET ✦</p>
+
+            <h1>
+                India's Heritage,<br>
+                <span>Crafted by Hand.</span>
+            </h1>
+
+            <p class="hero-description">
+                Discover authentic masterwork textiles, pottery, tribal murals, brass castings, and indigenous
+                handicrafts created by generational artisans across India.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" onclick="scrollToProducts()">
+                    EXPLORE CRAFTS <i data-lucide="arrow-right"></i>
+                </button>
+
+                <a href="#artisan" class="secondary-btn">
+                    MEET THE ARTISANS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= INTRO ================= -->
+    <section class="intro reveal-up">
+        <p class="section-label">VIRASYA MARKETPLACE</p>
+
+        <h2>
+            Where Tradition Meets <span>Craftsmanship</span>
+        </h2>
+
+        <p>
+            Every handcrafted piece carries the living soul of its people, sacred geometry of its region, and centuries
+            of unwritten master craftsmanship.
+        </p>
+    </section>
+
+    <!-- ================= FILTER CONTROLS ================= -->
+    <section class="market-controls reveal-up delay-1" id="products">
+        <div class="search-box">
+            <i data-lucide="search"></i>
+            <input type="text" id="searchInput"
+                placeholder="Search handicrafts, Paithani silk, Warli paintings, Blue pottery...">
+        </div>
+
+        <div class="filters">
+            <select id="stateFilter" aria-label="Filter by State">
+                <option value="all">All States</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Punjab">Punjab</option>
+            </select>
+
+            <select id="categoryFilter" aria-label="Filter by Category">
+                <option value="all">All Categories</option>
+                <option value="Sarees & Textiles">Sarees & Textiles</option>
+                <option value="Handicrafts">Handicrafts</option>
+                <option value="Paintings">Paintings</option>
+                <option value="Pottery">Pottery</option>
+                <option value="Wood Craft">Wood Craft</option>
+                <option value="Metal Craft">Metal Craft</option>
+            </select>
+
+            <select id="priceFilter" aria-label="Filter by Price">
+                <option value="all">All Prices</option>
+                <option value="500">Under ₹500</option>
+                <option value="1000">₹500 – ₹1,000</option>
+                <option value="2500">₹1,000 – ₹2,500</option>
+                <option value="5000">₹2,500 – ₹5,000</option>
+                <option value="5001">Above ₹5,000</option>
+            </select>
+
+            <select id="sortFilter" aria-label="Sort products">
+                <option value="default">Sort By: Featured</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- ================= CATEGORIES ================= -->
+    <section class="categories reveal-up">
+        <div class="section-heading">
+            <div>
+                <p>DISCOVER BY TRADITION</p>
+                <h2>Traditional <span>Crafts</span></h2>
+            </div>
+        </div>
+
+        <div class="category-grid">
+            <div class="category-card reveal-up delay-1" onclick="filterByCategoryFromCard('Sarees & Textiles')">
+                <div class="category-icon">🧵</div>
+                <h3>TEXTILES</h3>
+                <p>Woven stories of India</p>
+            </div>
+
+            <div class="category-card reveal-up delay-2" onclick="filterByCategoryFromCard('Pottery')">
+                <div class="category-icon">🏺</div>
+                <h3>POTTERY</h3>
+                <p>Earth shaped by masters</p>
+            </div>
+
+            <div class="category-card reveal-up delay-3" onclick="filterByCategoryFromCard('Paintings')">
+                <div class="category-icon">🎨</div>
+                <h3>PAINTINGS</h3>
+                <p>Tribal & miniature art</p>
+            </div>
+
+            <div class="category-card reveal-up delay-4" onclick="filterByCategoryFromCard('Wood Craft')">
+                <div class="category-icon">🪵</div>
+                <h3>WOOD CRAFT</h3>
+                <p>Carved with devotion</p>
+            </div>
+
+            <div class="category-card reveal-up delay-5" onclick="filterByCategoryFromCard('Metal Craft')">
+                <div class="category-icon">🔔</div>
+                <h3>METAL CRAFT</h3>
+                <p>Ancient Dokra casting</p>
+            </div>
+
+            <div class="category-card reveal-up delay-6" onclick="filterByCategoryFromCard('Handicrafts')">
+                <div class="category-icon">💍</div>
+                <h3>HANDICRAFTS</h3>
+                <p>Heritage in every detail</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PRODUCTS GRID ================= -->
+    <section class="products-section reveal-up">
+        <div class="section-heading">
+            <div>
+                <p>SHOP AUTHENTIC CRAFTS</p>
+                <h2>Products of <span>India</span></h2>
+            </div>
+            <span id="productCount">8 Authentic Crafts Available</span>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+            <!-- Dynamic JavaScript Product Cards rendered here -->
+        </div>
+    </section>
+
+    <!-- ================= STATE SECTION ================= -->
+    <section class="states-section reveal-up">
+        <div class="section-heading center">
+            <p>REGIONAL CRAFTSMANSHIP</p>
+            <h2>Crafts of <span>India</span></h2>
+            <p>Every region tells an epic through its handlooms, clays, and carved metals.</p>
+        </div>
+
+        <div class="state-grid">
+            <div class="state-card reveal-up delay-1">
+                <img src="https://images.unsplash.com/photo-1600100397608-f010b8e3d4e4?auto=format&fit=crop&w=800&q=80"
+                    alt="Maharashtra Craft">
+                <div class="state-content">
+                    <span>WESTERN INDIA</span>
+                    <h3>MAHARASHTRA</h3>
+                    <p>Paithani Silk • Warli Art • Kolhapuri Leather</p>
+                    <button onclick="filterByStateFromCard('Maharashtra')">
+                        Explore Crafts →
+                    </button>
+                </div>
+            </div>
+
+            <div class="state-card reveal-up delay-2">
+                <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80"
+                    alt="Uttarakhand Craft">
+                <div class="state-content">
+                    <span>NORTHERN INDIA</span>
+                    <h3>UTTARAKHAND</h3>
+                    <p>Himalayan Wool • Ringal Bamboo • Aipan Art</p>
+                    <button onclick="window.location.href='uttarakhand.html'">
+                        Explore State Page →
+                    </button>
+                </div>
+            </div>
+
+            <div class="state-card reveal-up delay-3">
+                <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=800&q=80"
+                    alt="Jharkhand Craft">
+                <div class="state-content">
+                    <span>EASTERN INDIA</span>
+                    <h3>JHARKHAND</h3>
+                    <p>Dokra Metal • Sohrai Murals • Bamboo</p>
+                    <button onclick="filterByStateFromCard('Jharkhand')">
+                        Explore Crafts →
+                    </button>
+                </div>
+            </div>
+
+            <div class="state-card reveal-up delay-4">
+                <img src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=800&q=80"
+                    alt="Rajasthan Craft">
+                <div class="state-content">
+                    <span>NORTHWEST INDIA</span>
+                    <h3>RAJASTHAN</h3>
+                    <p>Blue Pottery • Block Print • Wood Carving</p>
+                    <button onclick="filterByStateFromCard('Rajasthan')">
+                        Explore Crafts →
+                    </button>
+                </div>
+            </div>
+
+            <div class="state-card reveal-up delay-5">
+                <img src="https://images.unsplash.com/photo-1561350112-7b1f5f7d7d2a?auto=format&fit=crop&w=800&q=80"
+                    alt="Punjab Craft">
+                <div class="state-content">
+                    <span>NORTHERN INDIA</span>
+                    <h3>PUNJAB</h3>
+                    <p>Phulkari • Handloom Kurtas • Jutti Embroidery</p>
+                    <button onclick="filterByStateFromCard('Punjab')">
+                        Explore Crafts →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ARTISAN STORIES ================= -->
+    <section class="artisan-section reveal-up" id="artisan">
+        <div class="artisan-image reveal-up delay-1">
+            <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=900&q=80"
+                alt="Indian artisan at work">
+        </div>
+
+        <div class="artisan-content reveal-up delay-2">
+            <p class="section-label">BEHIND THE CRAFT</p>
+            <h2>Meet the <span>Artisans</span></h2>
+            <p>
+                Behind every hand-spun thread and carved clay vessel is a lifetime of devotion, passed from master to
+                apprentice across generations of Indian lineage.
+            </p>
+
+            <blockquote>
+                "When you buy a handmade product, you don't just buy an object. You become part of a living ancestral
+                story."
+            </blockquote>
+
+            <button class="primary-btn" onclick="scrollToProducts()">
+                DISCOVER ARTISAN STORIES <i data-lucide="arrow-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ================= TRUST BADGES ================= -->
+    <section class="trust-section reveal-up">
+        <div class="trust-item reveal-up delay-1">
+            <div class="trust-icon">✦</div>
+            <h3>AUTHENTIC HANDCRAFTS</h3>
+            <p>100% genuine traditional products certified from regional clusters.</p>
+        </div>
+
+        <div class="trust-item reveal-up delay-2">
+            <div class="trust-icon">♡</div>
+            <h3>SUPPORT LOCAL MAKERS</h3>
+            <p>Direct fair compensation empowering indigenous and rural families.</p>
+        </div>
+
+        <div class="trust-item reveal-up delay-3">
+            <div class="trust-icon">♢</div>
+            <h3>HERITAGE PRESERVATION</h3>
+            <p>Keeping ancient artistic traditions and craft knowledge alive.</p>
+        </div>
+
+        <div class="trust-item reveal-up delay-4">
+            <div class="trust-icon">✺</div>
+            <h3>ALL INDIA SOURCING</h3>
+            <p>Direct delivery from tribal and cultural hubs across every state.</p>
+        </div>
+    </section>
+
+    <!-- Floating Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to Top" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="footer-brand">
+            <h2>VIRASYA</h2>
+            <p>Culture. Heritage. Legacy.</p>
+            <p>Preserving India's heritage, one artisan craft at a time.</p>
+        </div>
+
+        <div>
+            <h4>EXPLORE</h4>
+            <a href="index.html#culture">Culture</a>
+            <a href="index.html#heritage">Heritage Sites</a>
+            <a href="index.html#festivals">Festivals</a>
+            <a href="index.html#crafts">Art & Crafts</a>
+        </div>
+
+        <div>
+            <h4>MARKETPLACE</h4>
+            <a href="#products">All Products</a>
+            <a href="#products" onclick="filterByStateFromCard('all')">States Collection</a>
+            <a href="#artisan">Meet Artisans</a>
+            <a href="javascript:void(0)" onclick="showToast('Your wishlist is up to date!')">Wishlist</a>
+        </div>
+
+        <div>
+            <h4>SUPPORT</h4>
+            <a href="javascript:void(0)" onclick="showToast('Customer support desk is active!')">Artisan Support</a>
+            <a href="javascript:void(0)" onclick="showToast('Free Pan-India shipping on all artisan orders!')">Shipping
+                Info</a>
+            <a href="javascript:void(0)"
+                onclick="showToast('100% authentic craft verification guarantee.')">Authenticity Guarantee</a>
+            <a href="index.html">Main Platform</a>
+        </div>
+    </footer>
+
+    <!-- ================= PRODUCT DETAIL MODAL ================= -->
+    <div class="modal" id="productModal">
+        <div class="modal-box">
+            <button class="close-modal" onclick="closeModal()" aria-label="Close Modal">&times;</button>
+
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="Product view">
+            </div>
+
+            <div class="modal-details">
+                <span id="modalState">State</span>
+                <h2 id="modalName">Product Name</h2>
+                <div class="rating">★★★★★</div>
+                <h3 id="modalPrice">₹0</h3>
+                <p id="modalDescription"></p>
+
+                <div class="craft-info">
+                    <p><strong>Craft Type:</strong> <span id="modalCategory"></span></p>
+                    <p><strong>Origin:</strong> <span id="modalOrigin"></span></p>
+                    <p><strong>Made By:</strong> Certified Regional Master Artisan</p>
+                </div>
+
+                <div class="quantity">
+                    <button onclick="changeQuantity(-1)">−</button>
+                    <span id="quantity">1</span>
+                    <button onclick="changeQuantity(1)">+</button>
+                </div>
+
+                <button class="primary-btn full-btn" id="modalCartButton">
+                    ADD TO CART
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/marketplace.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

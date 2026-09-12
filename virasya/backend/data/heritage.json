@@ -1,0 +1,50 @@
+[
+  {
+    "id": "taj-mahal",
+    "name": "TAJ MAHAL",
+    "location": "Agra, Uttar Pradesh",
+    "type": "UNESCO World Heritage Site",
+    "description": "A timeless symbol of love and one of the Seven Wonders of the World, crafted in pure white marble.",
+    "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": "ajanta-caves",
+    "name": "AJANTA CAVES",
+    "location": "Maharashtra",
+    "type": "UNESCO World Heritage Site",
+    "description": "Ancient Buddhist rock-cut cave monuments famous for masterpiece mural paintings and sculptures dating from the 2nd century BCE.",
+    "image": "https://images.unsplash.com/photo-1600100397608-f010b8e3d4e4?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": "amer-fort",
+    "name": "AMER FORT",
+    "location": "Rajasthan",
+    "type": "Hill Fort of Rajasthan",
+    "description": "A majestic example of Rajput architecture and royal grandeur overlooking Maota Lake in Jaipur.",
+    "image": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": "konark-sun-temple",
+    "name": "KONARK SUN TEMPLE",
+    "location": "Odisha",
+    "type": "UNESCO World Heritage Site",
+    "description": "A 13th-century monumental chariot temple dedicated to the Sun God Surya, celebrated for intricate stone carvings.",
+    "image": "https://images.unsplash.com/photo-1621330396173-e41c8b3b5e7b?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": "qutub-minar",
+    "name": "QUTUB MINAR",
+    "location": "Delhi",
+    "type": "UNESCO World Heritage Site",
+    "description": "The world's tallest brick minaret standing at 72.5 meters, surrounded by ancient medieval ruins and epigraphs.",
+    "image": "https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": "hampi",
+    "name": "HAMPI",
+    "location": "Karnataka",
+    "type": "UNESCO World Heritage Site",
+    "description": "Ruins of the glorious Vijayanagara Empire, featuring monolithic sculptures, stone chariots, and boulder-strewn temples.",
+    "image": "https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&w=700&q=80"
+  }
+]

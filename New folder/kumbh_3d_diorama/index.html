@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kumbh Mela 3D Interactive Diorama</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: radial-gradient(circle at 50% 30%, #2a1b12 0%, #0d0b0a 55%, #050505 100%);
+      color: #fff;
+    }
+    #app { position: fixed; inset: 0; }
+    canvas { display: block; }
+
+    .topbar {
+      position: fixed; z-index: 10; left: 24px; right: 24px; top: 20px;
+      display: flex; justify-content: space-between; align-items: center;
+      pointer-events: none;
+    }
+    .brand, .help {
+      pointer-events: auto;
+      background: rgba(20, 12, 7, .76);
+      border: 1px solid rgba(255, 194, 86, .30);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .brand { padding: 12px 17px; }
+    .brand strong { display:block; color:#ffd36b; font-size:18px; }
+    .brand span { font-size:12px; color:#dbc9ad; }
+    .help { padding: 10px 14px; color:#e9dcc9; font-size:12px; }
+
+    #info {
+      position: fixed; z-index: 20; right: 24px; top: 95px; width: 340px;
+      max-width: calc(100vw - 48px);
+      background: rgba(24, 13, 7, .92);
+      border: 1px solid rgba(255, 190, 73, .45);
+      border-radius: 20px;
+      padding: 20px;
+      transform: translateX(390px);
+      opacity: 0;
+      transition: .28s ease;
+      box-shadow: 0 18px 55px rgba(0,0,0,.55);
+      backdrop-filter: blur(16px);
+    }
+    #info.open { transform: translateX(0); opacity: 1; }
+    #info .tag {
+      display:inline-block; padding:5px 9px; border-radius:999px;
+      background:#8e4d15; color:#ffd989; font-size:11px; letter-spacing:.4px;
+      margin-bottom:10px;
+    }
+    #info h2 { margin: 0 0 8px; font-size:24px; color:#ffe0a0; }
+    #info p { margin: 0 0 12px; line-height:1.55; color:#eadcca; font-size:14px; }
+    #info .loc { font-size:12px; color:#ffbf58; margin-top:8px; }
+    #close { position:absolute; top:10px; right:12px; border:0; background:transparent; color:#fff; font-size:22px; cursor:pointer; }
+
+    .controls {
+      position: fixed; z-index: 10; left: 24px; bottom: 22px;
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+    button.ctrl {
+      border:1px solid rgba(255, 194, 86, .35);
+      background:rgba(20,12,7,.82); color:#ffe3ad;
+      padding:9px 12px; border-radius:10px; cursor:pointer;
+      backdrop-filter:blur(8px);
+    }
+    button.ctrl:hover { background:rgba(108,55,13,.9); }
+    .legend {
+      position: fixed; z-index: 10; left: 24px; bottom: 74px;
+      color:#dbc9ad; font-size:11px; background:rgba(20,12,7,.65);
+      padding:8px 10px; border-radius:9px;
+    }
+    #loading {
+      position: fixed; inset:0; z-index:50; display:grid; place-items:center;
+      background:#080604; color:#ffd36b; font-size:16px;
+      transition:opacity .4s;
+    }
+    #loading.hide { opacity:0; pointer-events:none; }
+
+    @media (max-width: 700px) {
+      .topbar { left:12px; right:12px; top:12px; }
+      .help { display:none; }
+      .brand { padding:9px 12px; }
+      #info { right:12px; top:78px; width:calc(100vw - 24px); }
+      .controls { left:12px; bottom:12px; }
+      .legend { display:none; }
+    }
+  </style>
+</head>
+<body>
+<div id="loading">Loading interactive 3D Kumbh Mela…</div>
+<div id="app"></div>
+
+<div class="topbar">
+  <div class="brand">
+    <strong>Kumbh Mela · 3D Heritage Experience</strong>
+    <span>Rotate • Zoom • Click glowing points</span>
+  </div>
+  <div class="help">Drag = rotate &nbsp; | &nbsp; Wheel = zoom &nbsp; | &nbsp; Click = explore</div>
+</div>
+
+<div id="info">
+  <button id="close">×</button>
+  <div class="tag" id="infoTag">HERITAGE LOCATION</div>
+  <h2 id="infoTitle"></h2>
+  <p id="infoText"></p>
+  <div class="loc" id="infoLoc"></div>
+</div>
+
+<div class="legend">✦ Glowing points = interactive locations</div>
+<div class="controls">
+  <button class="ctrl" id="reset">Reset View</button>
+  <button class="ctrl" id="top">Top View</button>
+  <button class="ctrl" id="night">Toggle Glow</button>
+</div>
+
+<script type="module">
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js";
+import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/controls/OrbitControls.js";
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x070605);
+scene.fog = new THREE.FogExp2(0x100b07, 0.018);
+
+const camera = new THREE.PerspectiveCamera(42, innerWidth / innerHeight, 0.1, 300);
+camera.position.set(28, 24, 34);
+
+const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:false });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.25;
+document.querySelector("#app").appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = .07;
+controls.minDistance = 13;
+controls.maxDistance = 75;
+controls.maxPolarAngle = Math.PI * .49;
+controls.target.set(0, 2, 0);
+
+scene.add(new THREE.HemisphereLight(0xffe4bd, 0x17100a, 2.1));
+
+const sun = new THREE.DirectionalLight(0xffd18a, 4.2);
+sun.position.set(-18, 32, 12);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048,2048);
+sun.shadow.camera.left = -35; sun.shadow.camera.right = 35;
+sun.shadow.camera.top = 35; sun.shadow.camera.bottom = -35;
+scene.add(sun);
+
+const warm = new THREE.PointLight(0xff9b35, 18, 65, 2);
+warm.position.set(0, 15, 0);
+scene.add(warm);
+
+function mat(color, rough=.72, metal=0) {
+  return new THREE.MeshStandardMaterial({color, roughness:rough, metalness:metal});
+}
+function box(w,h,d,x,y,z,color, bevel=0) {
+  const g = new THREE.BoxGeometry(w,h,d);
+  const m = new THREE.Mesh(g, mat(color));
+  m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true;
+  scene.add(m); return m;
+}
+function cyl(r,h,x,y,z,color,segments=32) {
+  const m = new THREE.Mesh(new THREE.CylinderGeometry(r,r,h,segments), mat(color));
+  m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true;
+  scene.add(m); return m;
+}
+function cone(r1,r2,h,x,y,z,color,segments=32) {
+  const m = new THREE.Mesh(new THREE.ConeGeometry(r1,h,segments), mat(color));
+  m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true;
+  scene.add(m); return m;
+}
+
+// -------------------------
+// Diorama base + river
+// -------------------------
+const base = new THREE.Mesh(
+  new THREE.CylinderGeometry(24,24,3.2,96),
+  mat(0x3b2113,.58)
+);
+base.position.y=-1.6; base.castShadow=true; base.receiveShadow=true; scene.add(base);
+
+const top = new THREE.Mesh(
+  new THREE.CylinderGeometry(23.2,23.2,.55,96),
+  mat(0x8c633e,.95)
+);
+top.position.y=.05; top.receiveShadow=true; scene.add(top);
+
+const river = new THREE.Mesh(
+  new THREE.CylinderGeometry(22.2,22.2,.14,96,1,false,0,Math.PI*0.78),
+  new THREE.MeshPhysicalMaterial({
+    color:0xc8d8d2, roughness:.18, metalness:.05,
+    transmission:.1, transparent:true, opacity:.93
+  })
+);
+river.rotation.y = Math.PI*.5;
+river.position.set(-1.8,.38,0);
+river.scale.set(1.0,.92,.62);
+scene.add(river);
+
+// land platform
+const land = new THREE.Mesh(new THREE.CylinderGeometry(18.5,18.5,.5,96), mat(0xb49b70,.95));
+land.position.set(2.7,.43,0);
+land.scale.set(1,.95,.72);
+land.receiveShadow=true; scene.add(land);
+
+// radial paths
+for (let i=0;i<4;i++){
+  const a=i*Math.PI/2;
+  const p=box(1,.10,17,2.7,.72,0,0xd1b27f);
+  p.rotation.y=a;
+}
+
+// -------------------------
+// Temple builder
+// -------------------------
+function temple(x,z,s=1, main=false) {
+  const stone=0x8a5c3e, dark=0x5b3929, roof=0x6e4430;
+  box(5*s,1.2*s,4.5*s,x,.95,z,stone);
+  box(3.8*s,2.6*s,3.4*s,x,2.65*s,z,0xa37a55);
+  for (const dx of [-1.45,1.45]) {
+    cyl(.62*s,2.0*s,x+dx*s,2.2*s,z,0x9d704e,20);
+    cone(.9*s,.15*s,1.8*s,x+dx*s,4.0*s,z,roof,20);
+  }
+  const towerH=main?7.8:5.5;
+  cone(2.05*s,.35*s,towerH*s,x,4.6*s,z,0x7d5038,12);
+  cone(2.25*s,1.8*s,.65*s,x,8.5*s,z,0x9b6a47,20);
+  const fin=cyl(.12*s,1.4*s,x,9.1*s,z,dark,12);
+  const flag=new THREE.Mesh(new THREE.PlaneGeometry(1.1*s,.55*s),mat(0xc94d24));
+  flag.position.set(x+.55*s,9.6*s,z); flag.rotation.y=Math.PI/2; scene.add(flag);
+}
+temple(4,0,1.0,true);
+temple(10,-3,.62,false);
+temple(9,5,.55,false);
+temple(-1,5,.55,false);
+
+// small shrines
+for (const p of [[1,-6],[14,3],[13,-8],[-3,9]]) {
+  cyl(1.0,.9,p[0],1.05,p[1],0x9b744f,24);
+  cone(1.1,.15,2.2,p[0],2.55,p[1],0x805338,16);
+}
+
+// -------------------------
+// Ghats / steps
+// -------------------------
+function ghat(x,z,rot=0) {
+  const group=new THREE.Group();
+  for(let i=0;i<7;i++){
+    const g=new THREE.Mesh(new THREE.BoxGeometry(8-i*.7,.32,1.05),mat(0xb9986b));
+    g.position.set(0,.65+i*.28,i*.55);
+    g.castShadow=true; group.add(g);
+  }
+  group.position.set(x,.45,z); group.rotation.y=rot;
+  scene.add(group);
+}
+ghat(-11,-4,-Math.PI/2);
+ghat(-10,4,-Math.PI/2);
+
+// -------------------------
+// Camps / colorful tents
+// -------------------------
+function tent(x,z,color,scale=1) {
+  const g=new THREE.Group();
+  const body=new THREE.Mesh(new THREE.ConeGeometry(1.35*scale,2.5*scale,4),mat(color));
+  body.position.y=1.5*scale; body.rotation.y=Math.PI/4; body.castShadow=true; g.add(body);
+  const base=new THREE.Mesh(new THREE.CylinderGeometry(1.05*scale,1.05*scale,.25*scale,4),mat(0x5e3924));
+  base.position.y=.2; base.castShadow=true; g.add(base);
+  g.position.set(x,.55,z); scene.add(g);
+}
+const colors=[0xc35c2c,0x347b57,0xd49b28,0x4e659e,0x7c4b91,0xbd3f32];
+[
+  [-5,-8,0],[0,-8,1],[5,-7,2],[9,-6,3],
+  [12,-3,4],[15,-1,5],[13,6,0],[9,8,1],
+  [4,8,2],[-1,9,3]
+].forEach((p,i)=>tent(p[0],p[1],colors[p[2]],.9+(i%3)*.12));
+
+// market stalls
+function stall(x,z,rot=0) {
+  const g=new THREE.Group();
+  const base=new THREE.Mesh(new THREE.BoxGeometry(2.8,.55,1.6),mat(0x80502f));
+  base.position.y=.9; base.castShadow=true; g.add(base);
+  const roof=new THREE.Mesh(new THREE.ConeGeometry(2.05,1.15,4),mat(0xd2a52c));
+  roof.position.y=2.0; roof.rotation.y=Math.PI/4; roof.castShadow=true; g.add(roof);
+  g.position.set(x,.5,z); g.rotation.y=rot; scene.add(g);
+}
+stall(14,-6,.1); stall(15,7,-.3); stall(-2,-10,.4);
+
+// -------------------------
+// Boats
+// -------------------------
+function boat(x,z,rot=0) {
+  const g=new THREE.Group();
+  const hull=new THREE.Mesh(new THREE.CapsuleGeometry(.55,2.8,6,16),mat(0x4d2b1b));
+  hull.rotation.z=Math.PI/2; hull.scale.y=.55; hull.position.y=.1; hull.castShadow=true; g.add(hull);
+  const seat=box(.7,.18,.25,0,.55,0,0x9b6a3c); seat.parent=g;
+  const pole=new THREE.Mesh(new THREE.CylinderGeometry(.045,.045,1.8,10),mat(0x6d472c));
+  pole.position.set(0,1.0,0); g.add(pole);
+  const sail=new THREE.Mesh(new THREE.PlaneGeometry(.9,.75),mat(0xd17b32));
+  sail.position.set(.28,1.2,0); sail.rotation.y=Math.PI/2; g.add(sail);
+  g.position.set(x,.62,z); g.rotation.y=rot; scene.add(g);
+}
+boat(-16,-7,.3); boat(-17,5,-.5); boat(-8,10,.8);
+
+// -------------------------
+// People as tiny groups
+// -------------------------
+function person(x,z,c=0xc65c2e) {
+  const g=new THREE.Group();
+  const body=new THREE.Mesh(new THREE.CapsuleGeometry(.09,.34,4,8),mat(c));
+  body.position.y=.7; body.castShadow=true; g.add(body);
+  const head=new THREE.Mesh(new THREE.SphereGeometry(.10,10,10),mat(0x9b603c));
+  head.position.y=1.0; head.castShadow=true; g.add(head);
+  g.position.set(x,.5,z); scene.add(g);
+}
+for(let i=0;i<95;i++){
+  const a=Math.random()*Math.PI*2, r=6+Math.random()*12;
+  const x=2.7+Math.cos(a)*r, z=Math.sin(a)*r*.72;
+  if(x*x+z*z < 20) continue;
+  person(x,z,[0xc65c2e,0xe0a23b,0x5b718b,0xddd0b2][i%4]);
+}
+
+// -------------------------
+// Hotspots
+// -------------------------
+const hotspotData = [
+  {
+    title:"Main Temple Complex",
+    tag:"HERITAGE",
+    text:"The central temple zone represents the spiritual heart of the mela. Visitors gather for darshan, prayer and traditional rituals around the sacred architecture.",
+    loc:"Location: Central ceremonial zone"
+  },
+  {
+    title:"Sacred River & Ghats",
+    tag:"PILGRIMAGE",
+    text:"The riverfront and stepped ghats are represented as the key bathing and ritual area. Pilgrims traditionally gather here for sacred bathing and ceremonies.",
+    loc:"Location: Western riverfront"
+  },
+  {
+    title:"Pilgrim Camps",
+    tag:"LIVING CULTURE",
+    text:"Temporary camps create a vibrant settlement around the festival. They represent accommodation, community spaces, spiritual groups and everyday life during the mela.",
+    loc:"Location: Festival camp zone"
+  },
+  {
+    title:"Traditional Market",
+    tag:"ARTS & CRAFTS",
+    text:"Market stalls represent local vendors, devotional items, traditional crafts, food and souvenirs. In a heritage platform, this area can connect visitors with local artisans.",
+    loc:"Location: Eastern market zone"
+  },
+  {
+    title:"Boat & River Activity",
+    tag:"LOCAL EXPERIENCE",
+    text:"The river transport area represents the close relationship between the settlement, the sacred river and visitor movement around the festival landscape.",
+    loc:"Location: River activity zone"
+  },
+  {
+    title:"Festival Gathering",
+    tag:"CULTURE",
+    text:"Large gathering spaces represent processions, community interaction, storytelling, music and other cultural activities associated with a major Indian pilgrimage festival.",
+    loc:"Location: Open gathering zone"
+  }
+];
+
+const hotspotPositions = [
+  [4,11,0],
+  [-11,4,1.2],
+  [4,2,2.1],
+  [14,7,2.2],
+  [-16,-7,1.4],
+  [10,-3,1.8]
+];
+
+const hotspots=[];
+const hotspotGroup=new THREE.Group(); scene.add(hotspotGroup);
+
+function makeHotspot(i) {
+  const [x,z,y] = hotspotPositions[i];
+  const group=new THREE.Group();
+  group.position.set(x,2.2,z);
+
+  const ring=new THREE.Mesh(
+    new THREE.RingGeometry(.45,.58,32),
+    new THREE.MeshBasicMaterial({color:0xffb42e,transparent:true,opacity:.75,side:THREE.DoubleSide})
+  );
+  ring.rotation.x=-Math.PI/2; group.add(ring);
+
+  const orb=new THREE.Mesh(
+    new THREE.SphereGeometry(.22,24,24),
+    new THREE.MeshBasicMaterial({color:0xffd36b})
+  );
+  orb.position.y=.35; group.add(orb);
+
+  const glow=new THREE.PointLight(0xffa52f,7,5,2);
+  glow.position.y=.35; group.add(glow);
+
+  group.userData.index=i;
+  hotspotGroup.add(group);
+  hotspots.push(group);
+}
+for(let i=0;i<hotspotData.length;i++) makeHotspot(i);
+
+// click detection
+const raycaster=new THREE.Raycaster();
+const pointer=new THREE.Vector2();
+
+function showInfo(i) {
+  const d=hotspotData[i];
+  document.querySelector("#infoTag").textContent=d.tag;
+  document.querySelector("#infoTitle").textContent=d.title;
+  document.querySelector("#infoText").textContent=d.text;
+  document.querySelector("#infoLoc").textContent=d.loc;
+  document.querySelector("#info").classList.add("open");
+}
+renderer.domElement.addEventListener("pointerdown", e=>{
+  pointer.x=(e.clientX/innerWidth)*2-1;
+  pointer.y=-(e.clientY/innerHeight)*2+1;
+  raycaster.setFromCamera(pointer,camera);
+  const hits=raycaster.intersectObjects(hotspots,true);
+  if(hits.length){
+    let o=hits[0].object;
+    while(o.parent && o.parent!==hotspotGroup) o=o.parent;
+    showInfo(o.userData.index);
+  }
+});
+
+document.querySelector("#close").onclick=()=>document.querySelector("#info").classList.remove("open");
+
+const initialPos=camera.position.clone();
+document.querySelector("#reset").onclick=()=>{
+  camera.position.copy(initialPos);
+  controls.target.set(0,2,0);
+  controls.update();
+};
+document.querySelector("#top").onclick=()=>{
+  camera.position.set(0,45,.01);
+  controls.target.set(0,0,0);
+  controls.update();
+};
+let glowOn=true;
+document.querySelector("#night").onclick=()=>{
+  glowOn=!glowOn;
+  hotspots.forEach(h=>h.children[2].intensity=glowOn?7:0);
+};
+
+// Animate hotspot pulsing
+const clock=new THREE.Clock();
+function animate(){
+  requestAnimationFrame(animate);
+  const t=clock.getElapsedTime();
+  hotspots.forEach((h,i)=>{
+    const s=1+Math.sin(t*3+i)*.16;
+    h.scale.setScalar(s);
+    h.children[0].material.opacity=.45+Math.sin(t*3+i)*.25;
+  });
+  controls.update();
+  renderer.render(scene,camera);
+}
+animate();
+
+addEventListener("resize",()=>{
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth,innerHeight);
+});
+setTimeout(()=>document.querySelector("#loading").classList.add("hide"),500);
+</script>
+</body>
+</html>

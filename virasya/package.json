@@ -1,0 +1,13 @@
+{
+  "name": "virasya",
+  "version": "1.0.0",
+  "description": "VIRASYA — Indian Culture, Heritage & Legacy Web Platform",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js",
+    "server": "node backend/server.js"
+  },
+  "keywords": ["virasya", "heritage", "india", "culture"],
+  "author": "",
+  "license": "ISC"
+}

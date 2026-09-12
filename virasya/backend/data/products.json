@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Paithani Silk Saree",
+    "state": "Maharashtra",
+    "category": "Sarees & Textiles",
+    "price": 4999,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
+    "description": "A traditional handwoven Paithani silk saree known for its iconic peacock border motifs, pure gold zari threads, and centuries-old royal heritage."
+  },
+  {
+    "id": 2,
+    "name": "Himalayan Wool Shawl",
+    "state": "Uttarakhand",
+    "category": "Sarees & Textiles",
+    "price": 3499,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80",
+    "description": "A warm, finely handwoven Himalayan virgin sheep wool shawl crafted by indigenous Pahadi weavers with geometric borders."
+  },
+  {
+    "id": 3,
+    "name": "Dokra Tribal Figurine",
+    "state": "Jharkhand",
+    "category": "Metal Craft",
+    "price": 1299,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=800&q=80",
+    "description": "Non-ferrous lost-wax metal casting crafted by tribal metal-smiths carrying a 4,000-year-old metallurgical lineage dating from Harappa."
+  },
+  {
+    "id": 4,
+    "name": "Rajasthani Blue Pottery Vase",
+    "state": "Rajasthan",
+    "category": "Pottery",
+    "price": 899,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1582561833407-b95380302a8b?auto=format&fit=crop&w=800&q=80",
+    "description": "Turquoise-glazed quartz pottery with Persian floral motifs, handcrafted in Jaipur without traditional clay using feldspar and natural gum."
+  },
+  {
+    "id": 5,
+    "name": "Phulkari Embroidery Dupatta",
+    "state": "Punjab",
+    "category": "Sarees & Textiles",
+    "price": 1499,
+    "rating": 5,
+    "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+    "description": "Vibrant silk floss 'flower work' embroidered on handspun khaddar fabric, reflecting joyous Punjabi celebratory traditions."
+  },
+  {
+    "id": 6,
+    "name": "Warli Tribal Art Canvas",
+    "state": "Maharashtra",
+    "category": "Paintings",
+    "price": 1799,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=800&q=80",
+    "description": "Ancient tribal folk art painted with white rice paste depicting circles of life, the Tarpa dance, harvest celebrations, and harmony with nature."
+  },
+  {
+    "id": 7,
+    "name": "Rajasthani Carved Wood Decor",
+    "state": "Rajasthan",
+    "category": "Wood Craft",
+    "price": 1199,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=800&q=80",
+    "description": "Intricately hand-carved Sheesham wood artifact featuring royal jharokha archways and fine antiqued brass inlays."
+  },
+  {
+    "id": 8,
+    "name": "Ringal Bamboo Craft Basket",
+    "state": "Jharkhand",
+    "category": "Handicrafts",
+    "price": 749,
+    "rating": 4,
+    "image": "https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=800&q=80",
+    "description": "Eco-friendly sustainable hill bamboo weave handcrafted with flexible shoots into functional everyday storage and ritual containers."
+  }
+]

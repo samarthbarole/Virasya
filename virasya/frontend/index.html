@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRASYA — Culture. Heritage. Legacy.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Frontend Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Chatbot Stylesheet -->
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
+
+<body>
+
+    <!-- 1. Intro Video Overlay (Plays once per browser session) -->
+    <script>
+        if (sessionStorage.getItem("virasya_intro_seen")) {
+            document.documentElement.classList.add("intro-skipped");
+        }
+    </script>
+    <div id="intro">
+        <video id="introVideo" autoplay muted playsinline>
+            <source src="assets/videos/opening_vid.mp4" type="video/mp4">
+        </video>
+        <button id="skipBtn">Skip Intro &rarr;</button>
+    </div>
+
+    <!-- 2. Main Top Hero Section -->
+    <div class="hero-banner" id="home">
+        <img src="assets/images/landingPage.png" class="background" alt="India Heritage">
+        <div class="overlay"></div>
+        <canvas id="heroSparksCanvas" class="hero-sparks-canvas"></canvas>
+
+        <div class="content">
+            <!-- Top Navbar -->
+            <header class="navbar">
+                <a href="#home" class="brand">
+                    <div class="brand-mark">ॐ</div>
+                    <div>
+                        <div class="brand-title">VIRASYA</div>
+                        <div class="brand-sub">Culture. Heritage. Legacy.</div>
+                    </div>
+                </a>
+
+                <nav class="nav-links-wrap">
+                    <a href="#map"><i class="fa-solid fa-map-location-dot"></i> Discover States</a>
+                    <a href="marketplace.html"><i class="fa-solid fa-store"></i> Market Place</a>
+                    <a href="simulator.html"><i class="fa-solid fa-vr-cardboard"></i> Simulator</a>
+                </nav>
+
+                <div class="nav-search">
+                    <select class="object" id="stateSelect" aria-label="Select State">
+                        <option value="All">All States</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Punjab">Punjab</option>
+                    </select>
+                    <input class="search-input" id="stateSearch" placeholder="Search state here...">
+                    <div class="search-icon" id="searchBtn" title="Search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Center Hero Content -->
+            <div class="hero-center-box">
+                <span class="hero-kicker-tag">✦ INCREDIBLE INDIA • LIVING HERITAGE ✦</span>
+                <h1>Welcome to India!</h1>
+                <h2>A land of culture and tradition</h2>
+                <a href="#map" class="hero-cta">
+                    Explore Heritage <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+            <div></div>
+        </div>
+    </div>
+
+    <main>
+        <!-- 3. Featured States Pill Bar -->
+        <div class="featured reveal-on-scroll">
+            <div class="featured-title">FEATURED STATES</div>
+            <a onclick="go('Maharashtra')">Maharashtra</a>
+            <a href="uttarakhand.html" title="Explore Uttarakhand">Uttarakhand</a>
+            <a onclick="go('Jharkhand')">Jharkhand</a>
+            <a onclick="go('Rajasthan')">Rajasthan</a>
+            <a onclick="go('Punjab')">Punjab</a>
+        </div>
+
+        <!-- 4. Interactive India Map Section -->
+        <section class="map-hero" id="map">
+            <div class="hero-copy reveal-on-scroll">
+                <div class="kicker">DISCOVER</div>
+                <h1>INDIA</h1>
+                <h2>Every State Has a Story.</h2>
+                <div class="divider"></div>
+                <p>
+                    Explore the diverse cultures, heritage and traditions
+                    that shape India.
+                </p>
+            </div>
+
+            <div class="map-area reveal-on-scroll delay-2">
+                <div class="map-card">
+                    <!-- India Map Image with Featured States -->
+                    <img src="assets/images/indiamap.png" alt="India Map with Featured States" class="india-map-img">
+
+                    <!-- Clickable State Regions over the Map Image -->
+                    <div class="state-clickable-area punjab-area" onclick="go('Punjab')" title="Explore Punjab"></div>
+                    <div class="map-hotspot punjab-spot" onclick="go('Punjab')" title="Explore Punjab"></div>
+
+                    <div class="state-clickable-area uttarakhand-area" onclick="window.location.href='uttarakhand.html'"
+                        title="Explore Uttarakhand (Devbhoomi)"></div>
+                    <div class="map-hotspot uttarakhand-spot" onclick="window.location.href='uttarakhand.html'"
+                        title="Explore Uttarakhand (Devbhoomi)"></div>
+
+                    <div class="state-clickable-area rajasthan-area" onclick="go('Rajasthan')"
+                        title="Explore Rajasthan"></div>
+                    <div class="map-hotspot rajasthan-spot" onclick="go('Rajasthan')" title="Explore Rajasthan"></div>
+
+                    <div class="state-clickable-area jharkhand-area" onclick="go('Jharkhand')"
+                        title="Explore Jharkhand"></div>
+                    <div class="map-hotspot jharkhand-spot" onclick="go('Jharkhand')" title="Explore Jharkhand"></div>
+
+                    <div class="state-clickable-area maharashtra-area" onclick="go('Maharashtra')"
+                        title="Explore Maharashtra"></div>
+                    <div class="map-hotspot maharashtra-spot" onclick="go('Maharashtra')" title="Explore Maharashtra">
+                    </div>
+
+                    <!-- Clickable Legend in the bottom-right corner -->
+                    <div class="legend-click-overlay">
+                        <div class="legend-click-item" onclick="go('Maharashtra')" title="Explore Maharashtra"></div>
+                        <div class="legend-click-item" onclick="window.location.href='uttarakhand.html'"
+                            title="Explore Uttarakhand (Devbhoomi)"></div>
+                        <div class="legend-click-item" onclick="go('Jharkhand')" title="Explore Jharkhand"></div>
+                        <div class="legend-click-item" onclick="go('Rajasthan')" title="Explore Rajasthan"></div>
+                        <div class="legend-click-item" onclick="go('Punjab')" title="Explore Punjab"></div>
+                    </div>
+                </div>
+
+                <div class="map-note">CLICK A STATE TO EXPLORE</div>
+            </div>
+        </section>
+
+        <!-- 5. Living Legacy / About Section -->
+        <section class="section" id="about">
+            <div class="legacy reveal-on-scroll">
+                <div class="legacy-text">
+                    <h2>INDIA — A LIVING LEGACY</h2>
+                    <div class="divider" style="margin:18px 0"></div>
+                    <p>
+                        India is a land of timeless traditions, diverse cultures and rich
+                        heritage that has flourished for thousands of years. From ancient
+                        wisdom to vibrant festivals, from magnificent monuments to intricate
+                        art forms, every part of India tells a unique story.
+                    </p>
+                    <p>
+                        Explore, learn and celebrate the legacy that continues to live
+                        through generations.
+                    </p>
+                </div>
+                <div class="legacy-art reveal-on-scroll delay-2"></div>
+            </div>
+        </section>
+
+        <!-- 6. Enhanced Culture Showcase Section -->
+        <section class="section culture-showcase" id="culture">
+            <div class="culture-header-wrap reveal-on-scroll">
+                <span class="culture-kicker">✦ THE LIVING SOUL OF BHARAT ✦</span>
+                <h2 class="section-title">THE CULTURE OF INDIA</h2>
+                <div class="divider"></div>
+                <p class="section-sub">A living expression of traditions, people and everyday life.</p>
+
+                <!-- Category Filter Pills -->
+                <div class="culture-filter-bar">
+                    <button class="culture-tab active" onclick="filterCulture('all', event)"><i
+                            class="fa-solid fa-layer-group"></i> All Expressions</button>
+                    <button class="culture-tab" onclick="filterCulture('arts', event)"><i
+                            class="fa-solid fa-masks-theater"></i> Performing Arts</button>
+                    <button class="culture-tab" onclick="filterCulture('lifestyle', event)"><i
+                            class="fa-solid fa-gem"></i> Heritage & Lifestyle</button>
+                    <button class="culture-tab" onclick="filterCulture('sacred', event)"><i class="fa-solid fa-om"></i>
+                        Sacred Traditions</button>
+                </div>
+            </div>
+
+            <div class="culture-bento-grid">
+                <!-- 1. TRADITIONS (Featured Hero Card) -->
+                <article class="culture-card culture-hero-card reveal-on-scroll" data-category="sacred"
+                    onclick="go('Jharkhand')">
+                    <div class="culture-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1000&q=85"
+                            alt="Indian traditions" class="culture-img">
+                        <div class="culture-scrim"></div>
+                    </div>
+                    <div class="culture-card-content">
+                        <div class="culture-tag"><i class="fa-solid fa-hands-praying"></i> Living Philosophy</div>
+                        <h3 class="culture-card-title">TRADITIONS</h3>
+                        <p class="culture-card-desc">Ancient philosophies, familial devotion, and eternal values that
+                            have anchored Indian civilization and community life across millennia.</p>
+                        <div class="culture-card-footer">
+                            <span class="culture-badge">Foundational Roots</span>
+                            <span class="culture-link">Explore Stories <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. FOLK MUSIC -->
+                <article class="culture-card reveal-on-scroll delay-1" data-category="arts" onclick="go('Rajasthan')">
+                    <div class="culture-img-wrap">
+                        <img src="https://www.cd-cc.si/sites/default/files/images/gallery/PC_IndijskaTra.Glasba_galerija_foto01_1200x657.jpg"
+                            alt="Indian folk music" class="culture-img">
+                        <div class="culture-scrim"></div>
+                    </div>
+                    <div class="culture-card-content">
+                        <div class="culture-tag"><i class="fa-solid fa-music"></i> Melodies of Soil</div>
+                        <h3 class="culture-card-title">FOLK MUSIC</h3>
+                        <p class="culture-card-desc">Soulful songs of rural joy, desert ballads, devotional chants, and
+                            pastoral rhythms.</p>
+                        <div class="culture-card-footer">
+                            <span class="culture-badge">Rhythms & Raags</span>
+                            <span class="culture-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3. CLASSICAL DANCE -->
+                <article class="culture-card reveal-on-scroll delay-2" data-category="arts" onclick="go('Maharashtra')">
+                    <div class="culture-img-wrap">
+                        <img src="https://i.pinimg.com/736x/37/ce/72/37ce720301ab1ec46d70699242db169c.jpg"
+                            alt="Indian classical dance" class="culture-img">
+                        <div class="culture-scrim"></div>
+                    </div>
+                    <div class="culture-card-content">
+                        <div class="culture-tag"><i class="fa-solid fa-person-dress"></i> Poetry in Motion</div>
+                        <h3 class="culture-card-title">CLASSICAL DANCE</h3>
+                        <p class="culture-card-desc">Natyashastra traditions embodying divine storytelling through
+                            Mudras, Bhavas, and Taals.</p>
+                        <div class="culture-card-footer">
+                            <span class="culture-badge">8 Classical Forms</span>
+                            <span class="culture-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4. TRADITIONAL CLOTHING -->
+                <article class="culture-card reveal-on-scroll delay-1" data-category="lifestyle" onclick="go('Punjab')">
+                    <div class="culture-img-wrap">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-v8wZwsrq7ItZbasVpTSeMZP3UNfVoJj-hrxxWciQ4FIgXFSnelSN0dhX&s=10"
+                            alt="Traditional clothing" class="culture-img">
+                        <div class="culture-scrim"></div>
+                    </div>
+                    <div class="culture-card-content">
+                        <div class="culture-tag"><i class="fa-solid fa-shirt"></i> Woven Heritage</div>
+                        <h3 class="culture-card-title">TRADITIONAL CLOTHING</h3>
+                        <p class="culture-card-desc">Royal silk sarees, handcrafted Kurtas, vibrant turbans, and
+                            intricate Phulkari embroidery.</p>
+                        <div class="culture-card-footer">
+                            <span class="culture-badge">Textile Legacy</span>
+                            <span class="culture-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. CUISINE -->
+                <article class="culture-card reveal-on-scroll delay-2" data-category="lifestyle" onclick="go('Punjab')">
+                    <div class="culture-img-wrap">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6COp7dQVLk9CGPaKqjMMEgCaidwVioqPosPwlYekrXqU-k9uauGIqvmce&s=10"
+                            alt="Indian cuisine" class="culture-img">
+                        <div class="culture-scrim"></div>
+                    </div>
+                    <div class="culture-card-content">
+                        <div class="culture-tag"><i class="fa-solid fa-utensils"></i> Symphony of Spices</div>
+                        <h3 class="culture-card-title">CUISINE</h3>
+                        <p class="culture-card-desc">A culinary tapestry blending Ayurvedic herbs, aromatic spices, and
+                            regional traditional feasts.</p>
+                        <div class="culture-card-footer">
+                            <span class="culture-badge">Flavors of India</span>
+                            <span class="culture-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6. LANGUAGES -->
+                <article class="culture-card reveal-on-scroll delay-3" data-category="lifestyle"
+                    onclick="go('Uttarakhand')">
+                    <div class="culture-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80"
+                            alt="Indian language manuscripts" class="culture-img">
+                        <div class="culture-scrim"></div>
+                    </div>
+                    <div class="culture-card-content">
+                        <div class="culture-tag"><i class="fa-solid fa-scroll"></i> Ancient Dialects</div>
+                        <h3 class="culture-card-title">LANGUAGES</h3>
+                        <p class="culture-card-desc">Ancient Vedic Sanskrit, Brahmi epigraphs, and over 19,500 dialects
+                            across the subcontinent.</p>
+                        <div class="culture-card-footer">
+                            <span class="culture-badge">22 Official Tongues</span>
+                            <span class="culture-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7. RITUALS & CUSTOMS -->
+                <article class="culture-card reveal-on-scroll delay-4" data-category="sacred"
+                    onclick="go('Uttarakhand')">
+                    <div class="culture-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&w=800&q=80"
+                            alt="Indian rituals" class="culture-img">
+                        <div class="culture-scrim"></div>
+                    </div>
+                    <div class="culture-card-content">
+                        <div class="culture-tag"><i class="fa-solid fa-fire"></i> Sacred Observances</div>
+                        <h3 class="culture-card-title">RITUALS & CUSTOMS</h3>
+                        <p class="culture-card-desc">Sacred evening Ganga Aartis, morning chants, and vibrant milestone
+                            rites celebrating nature and life.</p>
+                        <div class="culture-card-footer">
+                            <span class="culture-badge">Sacred Ceremonies</span>
+                            <span class="culture-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 7. Heritage Section -->
+        <section class="section heritage" id="heritage">
+            <h2 class="section-title reveal-on-scroll">HERITAGE OF INDIA</h2>
+            <p class="section-sub reveal-on-scroll delay-1">Stories preserved in stone, art and architecture.</p>
+
+            <div class="heritage-cards">
+                <article class="card reveal-on-scroll delay-1">
+                    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=700&q=80"
+                        alt="Taj Mahal">
+                    <div class="card-body">
+                        <div class="card-title">TAJ MAHAL</div><small>Agra, Uttar Pradesh</small>
+                        <small>A timeless symbol of love and one of India's most iconic monuments.</small>
+                    </div>
+                </article>
+
+                <article class="card reveal-on-scroll delay-2">
+                    <img src="https://images.unsplash.com/photo-1600100397608-f010b8e3d4e4?auto=format&fit=crop&w=700&q=80"
+                        alt="Ajanta caves">
+                    <div class="card-body">
+                        <div class="card-title">AJANTA CAVES</div><small>Maharashtra</small>
+                        <small>Ancient Buddhist caves famous for paintings and sculptures.</small>
+                    </div>
+                </article>
+
+                <article class="card reveal-on-scroll delay-3">
+                    <img src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=700&q=80"
+                        alt="Amer Fort">
+                    <div class="card-body">
+                        <div class="card-title">AMER FORT</div><small>Rajasthan</small>
+                        <small>A majestic example of Rajput architecture and heritage.</small>
+                    </div>
+                </article>
+
+                <article class="card reveal-on-scroll delay-4">
+                    <img src="https://images.unsplash.com/photo-1621330396173-e41c8b3b5e7b?auto=format&fit=crop&w=700&q=80"
+                        alt="Konark Sun Temple">
+                    <div class="card-body">
+                        <div class="card-title">KONARK SUN TEMPLE</div><small>Odisha</small>
+                        <small>A remarkable temple known for its architectural brilliance.</small>
+                    </div>
+                </article>
+
+                <article class="card reveal-on-scroll delay-5">
+                    <img src="https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=700&q=80"
+                        alt="Qutub Minar">
+                    <div class="card-body">
+                        <div class="card-title">QUTUB MINAR</div><small>Delhi</small>
+                        <small>A UNESCO World Heritage Site and architectural landmark.</small>
+                    </div>
+                </article>
+
+                <article class="card reveal-on-scroll delay-6">
+                    <img src="https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&w=700&q=80"
+                        alt="Hampi">
+                    <div class="card-body">
+                        <div class="card-title">HAMPI</div><small>Karnataka</small>
+                        <small>Ruins of a glorious empire filled with history and magnificent structures.</small>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 8. Festivals Section -->
+        <section class="section" id="festivals">
+            <h2 class="section-title reveal-on-scroll">CELEBRATIONS OF INDIA</h2>
+            <p class="section-sub reveal-on-scroll delay-1">Festivals that bring communities, traditions and stories
+                together.</p>
+            <div class="cards">
+                <article class="card reveal-on-scroll delay-1">
+                    <img src="https://images.unsplash.com/photo-1604871000636-074fa5117945?auto=format&fit=crop&w=700&q=80"
+                        alt="Diwali">
+                    <div class="card-body">
+                        <div class="card-title">DIWALI</div><small>Festival of Lights</small>
+                    </div>
+                </article>
+                <article class="card reveal-on-scroll delay-2">
+                    <img src="https://images.unsplash.com/photo-1583512603806-077998240c7a?auto=format&fit=crop&w=700&q=80"
+                        alt="Holi">
+                    <div class="card-body">
+                        <div class="card-title">HOLI</div><small>Festival of Colors</small>
+                    </div>
+                </article>
+                <article class="card reveal-on-scroll delay-3">
+                    <img src="https://images.unsplash.com/photo-1561350112-7b1f5f7d7d2a?auto=format&fit=crop&w=700&q=80"
+                        alt="Baisakhi">
+                    <div class="card-body">
+                        <div class="card-title">BAISAKHI</div><small>Punjab</small>
+                    </div>
+                </article>
+                <article class="card reveal-on-scroll delay-4">
+                    <img src="https://images.unsplash.com/photo-1604608672516-f1b9c6d5d9b8?auto=format&fit=crop&w=700&q=80"
+                        alt="Ganesh festival">
+                    <div class="card-body">
+                        <div class="card-title">GANESH CHATURTHI</div><small>Maharashtra</small>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 9. Crafts Section -->
+        <section class="section" id="crafts">
+            <h2 class="section-title reveal-on-scroll">ARTS PASSED THROUGH GENERATIONS</h2>
+            <p class="section-sub reveal-on-scroll delay-1">Traditional Indian art forms that carry the identity of
+                their communities.</p>
+            <div class="cards">
+                <article class="card reveal-on-scroll delay-1"><img
+                        src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=700&q=80"
+                        alt="Warli art">
+                    <div class="card-body">
+                        <div class="card-title">WARLI ART</div><small>Maharashtra</small>
+                    </div>
+                </article>
+                <article class="card reveal-on-scroll delay-2"><img
+                        src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=700&q=80"
+                        alt="Madhubani art">
+                    <div class="card-body">
+                        <div class="card-title">MADHUBANI</div><small>Bihar</small>
+                    </div>
+                </article>
+                <article class="card reveal-on-scroll delay-3"><img
+                        src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=700&q=80"
+                        alt="Phulkari textile">
+                    <div class="card-body">
+                        <div class="card-title">PHULKARI</div><small>Punjab</small>
+                    </div>
+                </article>
+                <article class="card reveal-on-scroll delay-4"><img
+                        src="https://images.unsplash.com/photo-1582561833407-b95380302a8b?auto=format&fit=crop&w=700&q=80"
+                        alt="Traditional craft">
+                    <div class="card-body">
+                        <div class="card-title">BLUE POTTERY</div><small>Rajasthan</small>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- State Spotlight Modal -->
+    <div id="stateModal" class="state-modal-overlay">
+        <div class="state-modal-box">
+            <button class="modal-close-btn" onclick="closeStateModal()" aria-label="Close">&times;</button>
+            <div class="modal-header">
+                <span class="modal-kicker">FEATURED STATE SPOTLIGHT</span>
+                <h2 id="modalStateName">State</h2>
+                <div class="divider" style="margin: 10px 0 16px;"></div>
+            </div>
+            <div class="modal-body">
+                <img id="modalStateImg" src="" alt="State Heritage" class="modal-img">
+                <div class="modal-info">
+                    <p id="modalStateDesc"></p>
+                    <div class="modal-highlights">
+                        <div class="highlight-item">
+                            <strong><i class="fa-solid fa-landmark"></i> Key Heritage:</strong>
+                            <span id="modalStateHeritage"></span>
+                        </div>
+                        <div class="highlight-item">
+                            <strong><i class="fa-solid fa-palette"></i> Traditional Arts:</strong>
+                            <span id="modalStateArt"></span>
+                        </div>
+                        <div class="highlight-item">
+                            <strong><i class="fa-solid fa-masks-theater"></i> Major Festivals:</strong>
+                            <span id="modalStateFestivals"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-action-btn" onclick="exploreSectionFromModal()">Explore Section &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simulator Modal -->
+    <div id="simulatorModal" class="state-modal-overlay">
+        <div class="state-modal-box" style="max-width: 720px;">
+            <button class="modal-close-btn" onclick="closeSimulatorModal()" aria-label="Close">&times;</button>
+            <div class="modal-header">
+                <span class="modal-kicker"><i class="fa-solid fa-vr-cardboard"></i> INTERACTIVE 3D EXPERIENCE</span>
+                <h2>HERITAGE SIMULATOR</h2>
+                <div class="divider" style="margin: 10px 0 16px;"></div>
+                <p style="font-size: 14px; margin: 0; color: #5a270f;">Immerse yourself in virtual cultural walkthroughs
+                    and simulations across India.</p>
+            </div>
+            <div class="sim-grid">
+                <div class="sim-card" onclick="launchSimulation('monuments')">
+                    <div class="sim-card-icon"><i class="fa-solid fa-monument"></i></div>
+                    <h4>360° Monument Walkthrough</h4>
+                    <p>Explore high-fidelity 3D architectural wonders of Ajanta, Taj Mahal & Amer Fort.</p>
+                    <span class="sim-badge">3D Virtual Tour</span>
+                </div>
+                <div class="sim-card" onclick="launchSimulation('rhythms')">
+                    <div class="sim-card-icon"><i class="fa-solid fa-drum"></i></div>
+                    <h4>Folk Rhythms Synthesizer</h4>
+                    <p>Play traditional Indian folk instruments: Tabla, Dhol-Damau, and Khartal.</p>
+                    <span class="sim-badge">Audio Simulator</span>
+                </div>
+                <div class="sim-card" onclick="launchSimulation('canvas')">
+                    <div class="sim-card-icon"><i class="fa-solid fa-paintbrush"></i></div>
+                    <h4>Traditional Art Studio</h4>
+                    <p>Create digital folk patterns inspired by Warli, Madhubani and Aipan ritual motifs.</p>
+                    <span class="sim-badge">Interactive Canvas</span>
+                </div>
+                <div class="sim-card" onclick="launchSimulation('devbhoomi')">
+                    <div class="sim-card-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                    <h4>Devbhoomi Pilgrimage Flight</h4>
+                    <p>Simulate the sacred Char Dham aerial flight over high-altitude Himalayan peaks.</p>
+                    <span class="sim-badge">Aerial Simulation</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-action-btn"
+                    onclick="closeSimulatorModal(); document.getElementById('map').scrollIntoView({behavior:'smooth'});">
+                    Explore on 2D Map &rarr;
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        title="Back to Top" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <footer>
+        <div class="brand">
+            <div class="brand-mark">ॐ</div>
+            <div>
+                <div class="brand-title">VIRASYA</div>
+                <div class="brand-sub">Culture. Heritage. Legacy.</div>
+            </div>
+        </div>
+        <p>Preserving India's legacy for generations to come.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/artStudio.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html>

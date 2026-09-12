@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIRASYA — Heritage Simulator & Traditional Mandala Studio</title>
+  <meta name="description"
+    content="Experience India's living cultural traditions: create authentic Mandala, Kolam, Warli, and Madhubani art with sacred radial symmetry, translucent template tracing, sacred geometric shape stamping, folk percussion rhythms, 360° monument panoramas, and Devbhoomi virtual Aarti.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Frontend Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Chatbot Stylesheet -->
+  <link rel="stylesheet" href="css/chatbot.css">
+
+  <style>
+    /* =========================================================
+       HERITAGE SIMULATOR & MANDALA STUDIO CUSTOM STYLES
+       ========================================================= */
+    :root {
+      --bg-dark: #0e1017;
+      --surface-1: #151821;
+      --surface-2: #1e222f;
+      --surface-3: #272d3e;
+      --surface-glass: rgba(22, 25, 36, 0.88);
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --border-gold: rgba(217, 154, 36, 0.45);
+      --gold: #D4AF37;
+      --gold-light: #F5E6BE;
+      --gold-border: rgba(217, 154, 36, 0.45);
+      --orange: #E65100;
+      --primary: #f5a623;
+      --primary-glow: rgba(245, 166, 35, 0.4);
+      --accent: #00d2ff;
+      --text-main: #f0f3fa;
+      --text-muted: #9aa2bc;
+      --danger: #ff4757;
+      --success: #2ed573;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+      --shadow-studio: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 1px rgba(255, 255, 255, 0.1);
+      --transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* Simulator Hero Header */
+    @keyframes simHeaderBreathe {
+      0% { background-position: center 0%; }
+      50% { background-position: center 5%; }
+      100% { background-position: center 2%; }
+    }
+
+    .sim-page-header {
+      background: linear-gradient(180deg, rgba(74, 29, 8, 0.94) 0%, rgba(30, 12, 3, 0.98) 100%),
+        url('assets/images/landingPage.png') center/cover no-repeat;
+      padding: 55px 24px 30px;
+      text-align: center;
+      border-bottom: 2.5px solid var(--gold);
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      animation: simHeaderBreathe 25s ease-in-out infinite alternate;
+    }
+
+    .sim-page-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(217, 154, 36, 0.2), transparent 70%);
+      pointer-events: none;
+    }
+
+    @keyframes titleGlowEntrance {
+      0% { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    .sim-page-title {
+      font-family: "Cinzel", serif;
+      font-size: clamp(28px, 4vw, 42px);
+      color: #fff2c9;
+      margin: 0 0 8px;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+      background: linear-gradient(180deg, #ffffff 0%, #fff1c9 50%, #f5c65f 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleGlowEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .sim-page-desc {
+      font-family: "Playfair Display", serif;
+      font-size: 15px;
+      color: #f8dfaa;
+      max-width: 820px;
+      margin: 0 auto;
+      line-height: 1.55;
+      animation: titleGlowEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+
+    @keyframes stringVibrate {
+      0%, 100% { transform: scaleY(1); }
+      25% { transform: scaleY(1.4) skewX(3deg); filter: drop-shadow(0 0 12px #f5a623); }
+      50% { transform: scaleY(0.7) skewX(-3deg); }
+      75% { transform: scaleY(1.2) skewX(1.5deg); }
+    }
+
+    .tanpura-string.vibrating {
+      animation: stringVibrate 0.45s ease-out;
+    }
+
+    @keyframes padHit {
+      0% { transform: scale(0.92); box-shadow: 0 0 25px rgba(245, 166, 35, 0.9); }
+      50% { transform: scale(1.08); box-shadow: 0 0 15px rgba(245, 166, 35, 0.6); }
+      100% { transform: scale(1); }
+    }
+
+    .rhythm-pad.hit {
+      animation: padHit 0.25s ease-out;
+    }
+
+    .sim-page-container {
+      max-width: 1420px;
+      margin: 0 auto;
+      padding: 20px 18px 80px;
+    }
+
+    .sim-page-navbar-link.active {
+      color: var(--gold-light) !important;
+      background: rgba(217, 154, 36, 0.28) !important;
+      box-shadow: 0 0 12px rgba(217, 154, 36, 0.25);
+    }
+
+    /* Sub-Mode Navigation Bar */
+    .studio-control-toolbar {
+      background: var(--surface-1);
+      border: 1.5px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 12px 20px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .mode-pills {
+      display: flex;
+      background: var(--surface-2);
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      gap: 4px;
+    }
+
+    .mode-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      transition: var(--transition);
+      font-family: "Cinzel", serif;
+    }
+
+    .mode-pill svg, .mode-pill i {
+      font-size: 14px;
+    }
+
+    .mode-pill:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .mode-pill.active {
+      background: linear-gradient(135deg, #f5a623, #e65100);
+      color: #ffffff;
+      box-shadow: 0 3px 12px rgba(245, 166, 35, 0.4);
+    }
+
+    .folk-pills-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .studio-quick-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Main Studio 3-Column Layout */
+    .mandala-studio-workspace {
+      display: grid;
+      grid-template-columns: 290px 1fr 290px;
+      gap: 18px;
+      position: relative;
+      align-items: start;
+    }
+
+    /* Studio Card Panel */
+    .mandala-card-panel {
+      background: var(--surface-1);
+      border: 1.5px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      color: var(--text-main);
+      overflow-y: auto;
+      max-height: 740px;
+    }
+
+    .sidebar-section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--gold-light);
+    }
+
+    .sidebar-section-title .badge {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(245, 166, 35, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(245, 166, 35, 0.3);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Floating Left Palette */
+    .toolbar-button-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 8px;
+      margin-bottom: 8px;
+    }
+
+    .tool-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 16px;
+    }
+
+    .tool-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .tool-btn.active {
+      background: var(--primary);
+      color: #0e1017;
+      box-shadow: 0 0 14px var(--primary-glow);
+    }
+
+    .color-swatch-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .color-swatch-btn input[type="color"] {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    /* Sliders */
+    .control-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .control-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .control-header span:last-child {
+      color: var(--text-main);
+      font-weight: 700;
+      font-family: monospace;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--surface-3);
+      outline: none;
+      accent-color: var(--primary);
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 0 6px var(--primary-glow);
+      transition: transform 0.1s;
+    }
+
+    .slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    /* Brush Styles Grid */
+    .brush-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .brush-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 8px 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .brush-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      background: var(--surface-3);
+    }
+
+    .brush-card.active {
+      border-color: var(--primary);
+      background: rgba(245, 166, 35, 0.12);
+      box-shadow: 0 0 10px rgba(245, 166, 35, 0.25);
+    }
+
+    .brush-card i, .brush-card span.icon {
+      font-size: 16px;
+    }
+
+    .brush-card span.text {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .brush-card.active span.text {
+      color: var(--primary);
+    }
+
+    /* Template Grid */
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .template-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .template-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 4px 14px rgba(0, 210, 255, 0.2);
+    }
+
+    .template-card.active {
+      border-color: var(--primary);
+      box-shadow: 0 0 14px var(--primary-glow);
+    }
+
+    .template-preview {
+      height: 75px;
+      background: #090a0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .template-preview svg {
+      width: 60px;
+      height: 60px;
+    }
+
+    .template-info {
+      padding: 6px 8px;
+      background: var(--surface-1);
+    }
+
+    .template-info h4 {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .template-info p {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      line-height: 1.2;
+    }
+
+    /* Shapes Grid */
+    .shapes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .shape-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      height: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .shape-card:hover {
+      background: var(--surface-3);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .shape-card.active {
+      border-color: var(--primary);
+      background: rgba(245, 166, 35, 0.12);
+    }
+
+    .shape-card svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .shape-card span {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .shape-card.active span {
+      color: var(--primary);
+    }
+
+    /* Canvas Center Stage */
+    .canvas-viewport-stage {
+      position: relative;
+      background: radial-gradient(circle at center, #1b1e2a 0%, #0c0d12 100%);
+      border: 2px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      min-height: 560px;
+      overflow: hidden;
+    }
+
+    .canvas-container {
+      position: relative;
+      width: min(520px, calc(100vh - 240px));
+      height: min(520px, calc(100vh - 240px));
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      background: #11131a;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      margin: auto;
+    }
+
+    .canvas-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    #artCanvas {
+      pointer-events: auto;
+      z-index: 10;
+      cursor: crosshair;
+    }
+
+    #traceCanvas {
+      z-index: 5;
+      opacity: 0.38;
+      transition: opacity 0.15s ease;
+    }
+
+    #gridCanvas {
+      z-index: 7;
+      opacity: 0.9;
+    }
+
+    #previewCanvas {
+      z-index: 15;
+      pointer-events: none;
+    }
+
+    /* Zoom HUD */
+    .zoom-hud {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: flex;
+      gap: 6px;
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      z-index: 40;
+    }
+
+    .hud-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 13px;
+    }
+
+    .hud-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--primary);
+    }
+
+    /* Bottom Symmetry Dock */
+    .symmetry-dock {
+      margin-top: 14px;
+      background: var(--surface-glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      box-shadow: var(--shadow-studio);
+      z-index: 40;
+      flex-wrap: wrap;
+    }
+
+    .dock-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dock-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .sector-stepper {
+      display: flex;
+      align-items: center;
+      background: var(--surface-2);
+      border-radius: var(--radius-pill);
+      padding: 2px 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .stepper-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .stepper-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .stepper-val {
+      min-width: 32px;
+      text-align: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--primary);
+    }
+
+    .preset-chip {
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .preset-chip:hover,
+    .preset-chip.active {
+      color: #fff;
+      background: var(--surface-3);
+      border-color: var(--primary);
+    }
+
+    .dock-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .dock-toggle input[type="checkbox"] {
+      accent-color: var(--primary);
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    /* Color Palettes */
+    .palette-group {
+      margin-bottom: 12px;
+    }
+
+    .palette-name {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .color-grid {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .color-dot {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform 0.15s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .color-dot:hover {
+      transform: scale(1.15);
+    }
+
+    .color-dot.active {
+      border-color: #fff;
+      transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Background tone buttons */
+    .bg-tone-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+
+    .preset-bg-chip {
+      padding: 6px 8px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .preset-bg-chip:hover,
+    .preset-bg-chip.active {
+      color: #ffffff;
+      border-color: var(--primary);
+      background: var(--surface-3);
+    }
+
+    /* Action Notice Banner */
+    .mode-hint-banner {
+      background: rgba(245, 166, 35, 0.08);
+      border: 1px dashed rgba(245, 166, 35, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      margin-bottom: 12px;
+      font-size: 0.74rem;
+      line-height: 1.4;
+      color: #fed382;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .upload-box {
+      border: 1.5px dashed var(--border-subtle);
+      padding: 12px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      background: rgba(0, 0, 0, 0.2);
+      margin-top: 10px;
+    }
+
+    .upload-box:hover {
+      border-color: var(--accent);
+      background: rgba(0, 210, 255, 0.04);
+    }
+
+    .upload-box span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* Modal Dialog */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(8, 10, 16, 0.85);
+      backdrop-filter: blur(10px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--surface-1);
+      border: 1.5px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      width: 480px;
+      max-width: 92vw;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      color: var(--text-main);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 12px;
+    }
+
+    .modal-header h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: var(--gold-light);
+    }
+
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .export-option-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      background: var(--surface-2);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .export-option-row:hover {
+      border-color: var(--primary);
+      background: var(--surface-3);
+      transform: translateY(-2px);
+    }
+
+    .export-option-info h5 {
+      font-size: 0.88rem;
+      color: #fff;
+      margin-bottom: 2px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .export-option-info p {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .mandala-studio-workspace {
+        grid-template-columns: 240px 1fr 240px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .mandala-studio-workspace {
+        grid-template-columns: 1fr;
+      }
+      .canvas-viewport-stage {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar"
+    style="position: sticky; top: 0; z-index: 1000; background: rgba(30, 12, 3, 0.94); backdrop-filter: blur(14px); border-bottom: 1.5px solid rgba(217, 154, 36, 0.4); border-radius: 0;">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">ॐ</div>
+      <div class="brand-title">VIRASYA</div>
+    </a>
+
+    <nav class="nav-links-wrap">
+      <a href="index.html#map"><i class="fa-solid fa-map-location-dot"></i> <span>Discover States</span></a>
+      <a href="marketplace.html"><i class="fa-solid fa-store"></i> <span>Marketplace</span></a>
+      <a href="simulator.html" class="sim-page-navbar-link active"><i class="fa-solid fa-vr-cardboard"></i>
+        <span>Simulator</span></a>
+    </nav>
+
+    <div class="nav-search">
+      <select class="object" id="stateSelect" aria-label="Select State"
+        onchange="if(this.value && this.value !== 'All'){ window.location.href = (this.value === 'Uttarakhand' ? 'uttarakhand.html' : 'index.html#map'); }">
+        <option value="All">All States</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="West Bengal">West Bengal</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Punjab">Punjab</option>
+      </select>
+      <input class="search-input" id="stateSearch" placeholder="Search state...">
+      <div class="search-icon" id="searchBtn" title="Search" onclick="window.location.href='index.html#map'">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Simulator Page Hero Banner -->
+  <section class="sim-page-header">
+    <span class="hero-kicker-tag">✦ SACRED SYMMETRIES, RHYTHMS & VIRTUAL EXPEDITIONS ✦</span>
+    <h1 class="sim-page-title">HERITAGE SIMULATOR</h1>
+    <p class="sim-page-desc">
+      Create exquisite Mandala, Kolam, Warli, and Madhubani art with radial symmetry, translucent template tracing, and sacred geometric shape stamping. Compose classical folk rhythms in real-time, explore 360° architectural monuments with audio guides, and perform Devbhoomi virtual temple Aarti.
+    </p>
+
+    <!-- Simulator Switcher Tabs -->
+    <div class="sim-nav-tabs" style="margin-top: 24px; margin-bottom: 0;">
+      <button class="sim-nav-tab active" onclick="switchSimulatorTab('artStudio', event)">
+        <i class="fa-solid fa-palette"></i> Mandala & Traditional Art Studio
+      </button>
+      <button class="sim-nav-tab" onclick="switchSimulatorTab('rhythms', event)">
+        <i class="fa-solid fa-drum"></i> Folk Rhythms Sequencer
+      </button>
+      <button class="sim-nav-tab" onclick="switchSimulatorTab('monuments', event)">
+        <i class="fa-solid fa-monument"></i> 360° Monument Walkthrough
+      </button>
+      <button class="sim-nav-tab" onclick="switchSimulatorTab('devbhoomi', event)">
+        <i class="fa-solid fa-mountain-sun"></i> Devbhoomi Virtual Aarti
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Simulator Workspace Container -->
+  <main class="sim-page-container">
+
+    <!-- View 1: Traditional Art Studio & Mandala Engine -->
+    <div class="sim-view-panel active" id="simViewArtStudio">
+
+      <!-- Ambient Raag Drone Synth Controller Bar -->
+      <div class="raag-player-bar" id="inPageRaagBar">
+        <div class="raag-info">
+          <i class="fa-solid fa-music" style="color: var(--gold-light);"></i>
+          <span>Ambient Raag Yaman Drone (Tanpura & Sitar Synthesizer)</span>
+          <div class="raag-waves">
+            <span class="raag-bar"></span>
+            <span class="raag-bar"></span>
+            <span class="raag-bar"></span>
+            <span class="raag-bar"></span>
+          </div>
+        </div>
+        <button class="raag-toggle-btn" id="inPageRaagBtn" onclick="toggleRaagDrone()">
+          <i class="fa-solid fa-play"></i> Play Raag Drone
+        </button>
+      </div>
+
+      <!-- Studio Sub-Header / Mode Navigation Bar -->
+      <div class="studio-control-toolbar">
+        <!-- 3 Primary Studio Modes -->
+        <div class="mode-pills" role="tablist">
+          <button class="mode-pill active" id="tabFreehand" onclick="switchStudioMode('freehand')" role="tab">
+            <i class="fa-solid fa-pen-nib"></i>
+            <span>Freehand Mandala</span>
+          </button>
+          <button class="mode-pill" id="tabTrace" onclick="switchStudioMode('trace')" role="tab">
+            <i class="fa-solid fa-clone"></i>
+            <span>Trace Design Guide</span>
+          </button>
+          <button class="mode-pill" id="tabShapes" onclick="switchStudioMode('shapes')" role="tab">
+            <i class="fa-solid fa-shapes"></i>
+            <span>Mandala Shapes</span>
+          </button>
+        </div>
+
+        <!-- Folk Tradition Presets -->
+        <div class="folk-pills-group">
+          <button class="studio-mode-pill" data-mode="Kolam" onclick="setStudioMode('Kolam', event)">
+            ☸️ Kolam
+          </button>
+          <button class="studio-mode-pill active" data-mode="Mandala" onclick="setStudioMode('Mandala', event)">
+            🌸 Mandala
+          </button>
+          <button class="studio-mode-pill" data-mode="Rangoli" onclick="setStudioMode('Rangoli', event)">
+            ✨ Rangoli
+          </button>
+          <button class="studio-mode-pill" data-mode="Warli" onclick="setStudioMode('Warli', event)">
+            🏹 Warli
+          </button>
+          <button class="studio-mode-pill" data-mode="Madhubani" onclick="setStudioMode('Madhubani', event)">
+            🦚 Madhubani
+          </button>
+          <button class="studio-mode-pill" data-mode="Aipan" onclick="setStudioMode('Aipan', event)">
+            🏔️ Aipan
+          </button>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="studio-quick-actions">
+          <button id="btnUndo" class="studio-btn-sm" onclick="undo()" title="Undo (Ctrl+Z)" disabled>↩ Undo</button>
+          <button id="btnRedo" class="studio-btn-sm" onclick="redo()" title="Redo (Ctrl+Y)" disabled>↪ Redo</button>
+          <button class="studio-btn-sm danger" onclick="clearCanvasPrompt()" title="Clear Canvas">🗑 Clear</button>
+          <button class="studio-btn-sm" style="background: linear-gradient(135deg, var(--gold), var(--orange)); color: #fff; border: none;" onclick="openExportModal()">
+            <i class="fa-solid fa-download"></i> Export Art
+          </button>
+        </div>
+      </div>
+
+      <!-- 3-Column Studio Workspace -->
+      <div class="mandala-studio-workspace">
+
+        <!-- Left Column: Tools, Stroke, Mode Configurations -->
+        <aside class="mandala-card-panel">
+          <div>
+            <div class="sidebar-section-title">
+              <span>Drawing Tools</span>
+              <span class="badge">Toolbox</span>
+            </div>
+            
+            <div class="toolbar-button-row">
+              <button class="tool-btn active" id="toolBrush" onclick="selectDrawTool('brush')" title="Symmetry Brush (B)">
+                <i class="fa-solid fa-paintbrush"></i>
+              </button>
+              <button class="tool-btn" id="toolEraser" onclick="selectDrawTool('eraser')" title="Symmetry Eraser (E)">
+                <i class="fa-solid fa-eraser"></i>
+              </button>
+              <button class="tool-btn" id="toolStamp" onclick="selectDrawTool('stamp')" title="Shape Stamp (S)">
+                <i class="fa-solid fa-stamp"></i>
+              </button>
+              <div class="color-swatch-btn" id="activeColorSwatch" style="background-color: #f5a623;" title="Custom Color Picker">
+                <input type="color" id="nativeColorPicker" value="#f5a623" onchange="updateCustomColor(this.value)">
+              </div>
+              <button class="tool-btn" id="btnGlow" onclick="toggleGlowMode()" title="Neon Diya Glow">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </button>
+              <button class="tool-btn" id="btnRainbow" onclick="toggleRainbowMode()" title="Rainbow Spectrum Brush">
+                <i class="fa-solid fa-rainbow"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Mode Settings Section -->
+          <div id="modeConfigSection">
+            <div class="sidebar-section-title">
+              <span id="sidebarSectionTitle">Freehand Brush Settings</span>
+              <span class="badge">Active</span>
+            </div>
+
+            <div class="mode-hint-banner">
+              <i class="fa-solid fa-circle-info" style="margin-top: 2px;"></i>
+              <span id="modeBannerText">Draw freely on the canvas. Your strokes are reflected in radial sectors in real time.</span>
+            </div>
+
+            <!-- Stroke Size & Opacity -->
+            <div class="control-row">
+              <div class="control-header">
+                <span>Stroke Thickness</span>
+                <span id="valStrokeWidth">4 px</span>
+              </div>
+              <input type="range" class="slider" id="inputStrokeWidth" min="1" max="40" value="4"
+                oninput="updateStrokeWidth(this.value)">
+            </div>
+
+            <div class="control-row">
+              <div class="control-header">
+                <span>Stroke Opacity</span>
+                <span id="valOpacity">100%</span>
+              </div>
+              <input type="range" class="slider" id="inputOpacity" min="5" max="100" value="100"
+                oninput="updateOpacity(this.value)">
+            </div>
+
+            <!-- Brush Texture Cards -->
+            <div style="margin-top: 10px;">
+              <div class="control-header" style="margin-bottom: 6px;">
+                <span>Brush Texture / Style</span>
+              </div>
+              <div class="brush-grid">
+                <div class="brush-card active" onclick="setBrushStyle('round')" id="bStyleRound">
+                  <i class="fa-solid fa-circle" style="color: var(--primary); font-size: 14px;"></i>
+                  <span class="text">Classic Ink</span>
+                </div>
+                <div class="brush-card" onclick="setBrushStyle('caligraphy')" id="bStyleCaligraphy">
+                  <i class="fa-solid fa-pen-nib"></i>
+                  <span class="text">Calligraphy</span>
+                </div>
+                <div class="brush-card" onclick="setBrushStyle('dotted')" id="bStyleDotted">
+                  <i class="fa-solid fa-ellipsis"></i>
+                  <span class="text">Dotted Pearl</span>
+                </div>
+                <div class="brush-card" onclick="setBrushStyle('powder')" id="bStylePowder">
+                  <i class="fa-solid fa-sparkles"></i>
+                  <span class="text">Rice Flour</span>
+                </div>
+                <div class="brush-card" onclick="setBrushStyle('glow')" id="bStyleGlow">
+                  <i class="fa-solid fa-sun"></i>
+                  <span class="text">Diya Glow</span>
+                </div>
+                <div class="brush-card" onclick="setBrushStyle('gold_dust')" id="bStyleGold_dust">
+                  <i class="fa-solid fa-star"></i>
+                  <span class="text">Gold Dust</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tracing Controls Section (Visible in Trace Mode) -->
+          <div id="traceControlsSection" style="display: none;">
+            <div class="sidebar-section-title">
+              <span>Sacred Mandala Templates</span>
+              <span class="badge">Tracing Guide</span>
+            </div>
+
+            <div class="control-row">
+              <div class="control-header">
+                <span>Guide Translucency</span>
+                <span id="valTraceOpacity">38%</span>
+              </div>
+              <input type="range" class="slider" id="inputTraceOpacity" min="5" max="100" value="38"
+                oninput="updateTraceOpacity(this.value)">
+            </div>
+
+            <div style="display: flex; gap: 6px; margin: 10px 0;">
+              <button class="preset-chip" style="flex: 1; text-align: center;" onclick="toggleTraceVisibility()">
+                <span id="btnTraceToggleText">Hide Guide</span>
+              </button>
+              <button class="preset-chip" style="flex: 1; text-align: center;" onclick="invertTraceColor()">
+                <span>Invert Line Color</span>
+              </button>
+            </div>
+
+            <div class="template-grid" id="templateGrid">
+              <!-- Populated by JS -->
+            </div>
+
+            <div class="upload-box" onclick="document.getElementById('fileUploadRef').click()">
+              <i class="fa-solid fa-cloud-arrow-up" style="font-size: 20px; color: var(--gold-light);"></i>
+              <span>Upload Custom Outline / Sketch</span>
+              <input type="file" id="fileUploadRef" accept="image/*" style="display:none"
+                onchange="handleCustomImageUpload(event)">
+            </div>
+          </div>
+
+          <!-- Shapes Controls Section (Visible in Shapes Mode) -->
+          <div id="shapesControlsSection" style="display: none;">
+            <div class="sidebar-section-title">
+              <span>Mandala Shape Stamps</span>
+              <span class="badge">Radial Stamps</span>
+            </div>
+
+            <div class="mode-hint-banner">
+              <i class="fa-solid fa-stamp" style="margin-top: 2px;"></i>
+              <span>Select a sacred shape below. Click on the canvas to stamp with radial symmetry.</span>
+            </div>
+
+            <!-- Shape Selection Dropdown -->
+            <div class="control-row" style="margin-bottom: 8px;">
+              <div class="control-header">
+                <span>Selected Shape</span>
+                <span id="activeShapeBadge" style="color: var(--primary); font-weight: 700;">Lotus Petal</span>
+              </div>
+              <select id="shapeSelectDropdown" class="object" style="width: 100%; padding: 8px 12px; background: var(--surface-2); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; cursor: pointer;" onchange="selectMandalaShape(this.value)">
+                <option value="lotusPetal">🌸 Lotus Petal</option>
+                <option value="pointedPetal">👑 Pointed Crown</option>
+                <option value="teardrop">💧 Sacred Teardrop</option>
+                <option value="paisley">🦚 Kalka / Paisley</option>
+                <option value="sacredDiamond">💎 Diamond Lattice</option>
+                <option value="crescentMoon">🌙 Crescent Moon</option>
+                <option value="binduRosette">⭕ Concentric Ring</option>
+                <option value="sunRay">☀️ Sun Trident</option>
+                <option value="spiralVortex">🌀 Aura Spiral</option>
+              </select>
+            </div>
+
+            <div class="control-row">
+              <div class="control-header">
+                <span>Shape Scale</span>
+                <span id="valShapeScale">100%</span>
+              </div>
+              <input type="range" class="slider" id="inputShapeScale" min="20" max="250" value="100"
+                oninput="updateShapeScale(this.value)">
+            </div>
+
+            <div class="control-row">
+              <div class="control-header">
+                <span>Shape Rotation</span>
+                <span id="valShapeRotation">0°</span>
+              </div>
+              <input type="range" class="slider" id="inputShapeRotation" min="0" max="360" value="0"
+                oninput="updateShapeRotation(this.value)">
+            </div>
+
+            <div class="shapes-grid" id="shapesGrid" style="margin-top: 10px;">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Sacred Folk Motif Stencils -->
+          <div>
+            <div class="sidebar-section-title">
+              <span>Sacred Folk Motifs</span>
+            </div>
+            <div class="stamps-grid">
+              <button class="stamp-btn" id="motif_diya" onclick="selectMotifStamp('diya')" title="Sacred Diya Lamp">
+                🪔 <span>Diya</span>
+              </button>
+              <button class="stamp-btn" id="motif_lotus" onclick="selectMotifStamp('lotus')" title="Padma Lotus">
+                🪷 <span>Lotus</span>
+              </button>
+              <button class="stamp-btn" id="motif_peacock" onclick="selectMotifStamp('peacock')" title="Royal Peacock">
+                🦚 <span>Peacock</span>
+              </button>
+              <button class="stamp-btn" id="motif_om" onclick="selectMotifStamp('om')" title="Sacred OM">
+                🕉️ <span>OM</span>
+              </button>
+              <button class="stamp-btn" id="motif_trishul" onclick="selectMotifStamp('trishul')" title="Sacred Trident">
+                🔱 <span>Trishul</span>
+              </button>
+              <button class="stamp-btn" id="motif_gaja" onclick="selectMotifStamp('gaja')" title="Royal Elephant">
+                🐘 <span>Elephant</span>
+              </button>
+              <button class="stamp-btn" id="motif_surya" onclick="selectMotifStamp('surya')" title="Sun Deity">
+                ☀️ <span>Surya</span>
+              </button>
+              <button class="stamp-btn" id="motif_warli_dancer" onclick="selectMotifStamp('warli_dancer')" title="Warli Folk Dancer">
+                💃 <span>Warli</span>
+              </button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Center Column: Multi-layer Canvas Stage & Viewport -->
+        <main class="canvas-viewport-stage">
+          <!-- Zoom HUD -->
+          <div class="zoom-hud">
+            <button class="hud-btn" onclick="zoomIn()" title="Zoom In (+)">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </button>
+            <button class="hud-btn" onclick="resetZoom()" title="Reset Zoom (100%)">
+              <i class="fa-solid fa-arrows-rotate"></i>
+            </button>
+            <button class="hud-btn" onclick="zoomOut()" title="Zoom Out (-)">
+              <i class="fa-solid fa-magnifying-glass-minus"></i>
+            </button>
+          </div>
+
+          <!-- Canvas Container -->
+          <div class="canvas-container" id="canvasContainer">
+            <!-- Trace Layer (translucent guide) -->
+            <canvas id="traceCanvas" class="canvas-layer" width="860" height="860"></canvas>
+            <!-- Symmetry Guideline Layer -->
+            <canvas id="gridCanvas" class="canvas-layer" width="860" height="860"></canvas>
+            <!-- User Art Drawing Layer -->
+            <canvas id="artCanvas" class="canvas-layer" width="860" height="860"></canvas>
+            <!-- Real-time Brush & Shape Placement Preview Layer -->
+            <canvas id="previewCanvas" class="canvas-layer" width="860" height="860"></canvas>
+          </div>
+
+          <!-- Symmetry Bottom Control Dock -->
+          <div class="symmetry-dock">
+            <div class="dock-group">
+              <span class="dock-label">Sectors</span>
+              <div class="sector-stepper">
+                <button class="stepper-btn" onclick="adjustSectors(-2)">-</button>
+                <span class="stepper-val" id="sectorCountVal">8</span>
+                <button class="stepper-btn" onclick="adjustSectors(2)">+</button>
+              </div>
+            </div>
+
+            <div class="dock-group">
+              <button class="preset-chip" onclick="setSectors(4)">4</button>
+              <button class="preset-chip" onclick="setSectors(6)">6</button>
+              <button class="preset-chip active" onclick="setSectors(8)">8</button>
+              <button class="preset-chip" onclick="setSectors(12)">12</button>
+              <button class="preset-chip" onclick="setSectors(16)">16</button>
+              <button class="preset-chip" onclick="setSectors(24)">24</button>
+              <button class="preset-chip" onclick="setSectors(32)">32</button>
+            </div>
+
+            <div class="dock-group">
+              <label class="dock-toggle">
+                <input type="checkbox" id="chkMirror" checked onchange="toggleMirror(this.checked)">
+                <span>Mirror</span>
+              </label>
+            </div>
+
+            <div class="dock-group">
+              <label class="dock-toggle">
+                <input type="checkbox" id="chkGrid" checked onchange="toggleGrid(this.checked)">
+                <span>Guides</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px; font-size: 11.5px; color: var(--text-muted); font-style: italic;" id="inPageModeDesc">
+            🌸 Radial Mandala • Cosmic Balance & Concentric Symmetries
+          </div>
+        </main>
+
+        <!-- Right Column: Palettes, Background Tones, Generative & Presets -->
+        <aside class="mandala-card-panel">
+          <div>
+            <div class="sidebar-section-title">
+              <span>Curated Color Palettes</span>
+            </div>
+            <div id="curatedPalettesContainer">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Canvas Background Tone -->
+          <div>
+            <div class="sidebar-section-title">
+              <span>Canvas Surface Tone</span>
+            </div>
+            <div class="bg-tone-grid">
+              <button class="preset-bg-chip active" data-bg="#231109" onclick="setCanvasBackground('#231109')">Sacred Clay</button>
+              <button class="preset-bg-chip" data-bg="#11131a" onclick="setCanvasBackground('#11131a')">Dark Studio</button>
+              <button class="preset-bg-chip" data-bg="#07080c" onclick="setCanvasBackground('#07080c')">Obsidian</button>
+              <button class="preset-bg-chip" data-bg="#f7f5ee" onclick="setCanvasBackground('#f7f5ee')">Ivory Paper</button>
+              <button class="preset-bg-chip" data-bg="#121b28" onclick="setCanvasBackground('#121b28')">Midnight</button>
+              <button class="preset-bg-chip" data-bg="#161819" onclick="setCanvasBackground('#161819')">Temple Granite</button>
+            </div>
+          </div>
+
+          <!-- Generative Auto-Draw Flow -->
+          <div class="generative-box">
+            <button class="generative-btn" id="inPageGenFlowBtn" onclick="toggleGenerativeFlow()">
+              ✨ Auto-Draw Sacred Flow
+            </button>
+            <span style="font-size: 10px; color: var(--text-muted); margin-top: 4px; display: block;">Harmonic algorithmic sacred geometry</span>
+          </div>
+
+          <!-- Starter Patterns -->
+          <div>
+            <div class="sidebar-section-title">
+              <span>Starter Templates</span>
+            </div>
+            <div class="starter-templates-list">
+              <button class="starter-template-btn" onclick="loadStudioTemplate('lotus')">
+                🌸 Lotus Bloom Mandala
+              </button>
+              <button class="starter-template-btn" onclick="loadStudioTemplate('sikku')">
+                ☸️ Sikku Kolam Knot
+              </button>
+              <button class="starter-template-btn" onclick="loadStudioTemplate('rangoli')">
+                🪔 Diwali Star Rangoli
+              </button>
+            </div>
+          </div>
+
+          <div style="margin-top: auto;">
+            <button class="studio-export-btn primary" onclick="openExportModal()">
+              <i class="fa-solid fa-file-export"></i> Save & Export Artwork
+            </button>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+
+    <!-- View 2: Folk Rhythms Synthesizer & 16-Step Sequencer -->
+    <div class="sim-view-panel" id="simViewRhythms">
+      <div class="rhythms-studio-wrap">
+        <h3 class="rhythms-title">TRADITIONAL FOLK RHYTHMS SYNTHESIZER & SEQUENCER</h3>
+        <p class="rhythms-sub">Play live percussion pads or program authentic classical Taals with the 16-step rhythm sequencer.</p>
+
+        <!-- Live Instrument Pads -->
+        <div class="rhythms-pads-grid">
+          <button class="rhythm-pad-btn" onclick="playFolkNote('dha', event)">
+            <span class="pad-icon"><i class="fa-solid fa-drum"></i></span>
+            <span class="pad-bol">DHA</span>
+            <span class="pad-name">Tabla Baya</span>
+          </button>
+          <button class="rhythm-pad-btn" onclick="playFolkNote('ge', event)">
+            <span class="pad-icon"><i class="fa-solid fa-drum"></i></span>
+            <span class="pad-bol">GE</span>
+            <span class="pad-name">Bass Resonance</span>
+          </button>
+          <button class="rhythm-pad-btn" onclick="playFolkNote('na', event)">
+            <span class="pad-icon"><i class="fa-solid fa-drum"></i></span>
+            <span class="pad-bol">NA / TA</span>
+            <span class="pad-name">Dayan Rim</span>
+          </button>
+          <button class="rhythm-pad-btn" onclick="playFolkNote('tin', event)">
+            <span class="pad-icon"><i class="fa-solid fa-drum"></i></span>
+            <span class="pad-bol">TIN</span>
+            <span class="pad-name">High Resonance</span>
+          </button>
+          <button class="rhythm-pad-btn" onclick="playFolkNote('dholak', event)">
+            <span class="pad-icon"><i class="fa-solid fa-compact-disc"></i></span>
+            <span class="pad-bol">DHOLAK</span>
+            <span class="pad-name">Folk Punch</span>
+          </button>
+          <button class="rhythm-pad-btn" onclick="playFolkNote('damru', event)">
+            <span class="pad-icon"><i class="fa-solid fa-hourglass-half"></i></span>
+            <span class="pad-bol">DAMRU</span>
+            <span class="pad-name">Shiva Rattle</span>
+          </button>
+          <button class="rhythm-pad-btn" onclick="playFolkNote('ghungroo', event)">
+            <span class="pad-icon"><i class="fa-solid fa-bell"></i></span>
+            <span class="pad-bol">GHUNGROO</span>
+            <span class="pad-name">Brass Bells</span>
+          </button>
+          <button class="rhythm-pad-btn" onclick="playFolkNote('khartal', event)">
+            <span class="pad-icon"><i class="fa-solid fa-hand-sparkles"></i></span>
+            <span class="pad-bol">KHARTAL</span>
+            <span class="pad-name">Wooden Clapper</span>
+          </button>
+        </div>
+
+        <!-- 16-Step Traditional Rhythm Sequencer -->
+        <div class="sequencer-container">
+          <div class="seq-header-bar">
+            <div class="seq-controls">
+              <button class="seq-play-btn" id="inPageSeqPlayBtn" onclick="toggleSeqPlay()">
+                <i class="fa-solid fa-play"></i> Play Beat Loop
+              </button>
+              <select class="seq-preset-select" onchange="onSeqPresetChange(this.value)">
+                <option value="teentaal">Preset: Teentaal (16 Beats Classical)</option>
+                <option value="keherwa">Preset: Keherwa (8 Beats Folk)</option>
+                <option value="bhangra">Preset: Bhangra Dhol (8 Beats High Energy)</option>
+                <option value="garba">Preset: Garba Dandiya (8 Beats)</option>
+              </select>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-family: 'Cinzel', serif; font-size: 11.5px; color: var(--gold-light);">Tempo:</span>
+              <input type="range" min="60" max="180" value="110" class="heritage-slider" style="width: 100px;"
+                oninput="onSeqBpmChange(this.value)">
+              <strong id="inPageBpmBadge"
+                style="font-family: 'Cinzel', serif; font-size: 12px; color: #fff;">110 BPM</strong>
+            </div>
+          </div>
+
+          <div class="seq-grid-table" id="inPageSequencerGrid">
+            <!-- Dynamic Grid -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View 3: 360° Monument Panoramic Explorer with Audio Guide -->
+    <div class="sim-view-panel" id="simViewMonuments">
+      <div class="rhythms-studio-wrap">
+        <h3 class="rhythms-title">360° SACRED ARCHITECTURAL PANORAMA & AUDIO GUIDE</h3>
+        <p class="rhythms-sub">Click & drag to explore 360° panoramic heritage marvels with interactive historical voice narration.</p>
+
+        <!-- Monument Switcher Pills -->
+        <div class="weather-switcher-pills" style="margin-top: 0; margin-bottom: 16px;">
+          <button class="weather-pill active" onclick="loadMonument360('konark')">☀️ Konark Sun Temple</button>
+          <button class="weather-pill" onclick="loadMonument360('taj')">🏛️ Taj Mahal Symmetries</button>
+          <button class="weather-pill" onclick="loadMonument360('hampi')">🛕 Hampi Stone Chariot</button>
+          <button class="weather-pill" onclick="loadMonument360('ajanta')">🪨 Ajanta Caves</button>
+        </div>
+
+        <!-- Interactive 360° Viewer Box -->
+        <div class="panorama-viewer-container" id="panoramaBox">
+          <div class="panorama-canvas-wrap">
+            <img id="panoBgImg" class="panorama-bg-img"
+              src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1600&q=80"
+              alt="Monument 360">
+          </div>
+
+          <div class="panorama-overlay-ui">
+            <span class="panorama-title-badge" id="panoTitleBadge">Konark Sun Temple (Odisha)</span>
+            <div class="panorama-controls">
+              <button class="pano-ctrl-btn" onclick="narrateMonument()" title="Spoken Audio Guide">
+                <i class="fa-solid fa-volume-high"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="panorama-info-card">
+            <span id="panoDescText" style="flex: 1; text-align: left; font-size: 12.5px;">13th-century Kalinga chariot temple carved with 24 colossal stone wheels functioning as precise astronomical sundials.</span>
+            <button class="seq-play-btn" onclick="narrateMonument()" style="padding: 5px 14px; font-size: 11px;">
+              <i class="fa-solid fa-headphones"></i> Listen to Audio Guide
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View 4: Devbhoomi Virtual Aarti & Expedition -->
+    <div class="sim-view-panel" id="simViewDevbhoomi">
+      <div class="aarti-stage-wrap">
+        <span class="hero-kicker-tag" style="background: rgba(0,0,0,0.4);">✦ KEDARNATH • BADRINATH • VALLEY OF FLOWERS ✦</span>
+        <h3 class="rhythms-title" style="color: #fff1c9; margin-top: 10px;">DEVBHOOMI VIRTUAL TEMPLE AARTI</h3>
+        <p class="rhythms-sub" style="color: #f7dda8;">Ring the sacred consecrated temple bell and rotate the glowing Pancha Pradeep Diya to perform virtual Aarti.</p>
+
+        <!-- Interactive Consecrated Bell -->
+        <div class="aarti-bell-container" onclick="ringTempleBell()" title="Click to Ring Temple Bell">
+          <div class="aarti-bell-icon"><i class="fa-solid fa-bell"></i></div>
+          <span style="font-family: 'Cinzel', serif; font-size: 11px; color: var(--gold-light); display: block; margin-top: 4px;">🔔 Click to Ring Bell</span>
+        </div>
+
+        <!-- 360° Aarti Diya Wheel -->
+        <div class="aarti-diya-wheel" id="aartiDiyaWheel" title="Drag / Rotate Diya in Circular Motion">
+          <div class="diya-center-flame">🪔</div>
+        </div>
+
+        <div>
+          <span id="aartiCounterBadge" class="hero-kicker-tag" style="margin-bottom: 16px;">0 Rounds Completed ✦</span>
+        </div>
+
+        <div style="margin-top: 12px;">
+          <button class="aarti-chant-btn" onclick="ringTempleBell(); playFolkNote('ghungroo');">
+            <i class="fa-solid fa-om"></i> Perform Sacred Aarti & Ring Bell
+          </button>
+        </div>
+
+        <!-- Himalayan Mountain Weather Simulator -->
+        <div style="margin-top: 26px; border-top: 1px solid rgba(217, 154, 36, 0.3); padding-top: 18px;">
+          <span style="font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold-light);">Himalayan Mountain Ambiance:</span>
+          <div class="weather-switcher-pills">
+            <button class="weather-pill active" data-weather="temple" onclick="setDevbhoomiWeather('temple')">🛕 Evening Aarti</button>
+            <button class="weather-pill" data-weather="sunrise" onclick="setDevbhoomiWeather('sunrise')">🌅 Golden Sunrise</button>
+            <button class="weather-pill" data-weather="mist" onclick="setDevbhoomiWeather('mist')">🌫️ Himalayan Mist</button>
+            <button class="weather-pill" data-weather="snow" onclick="setDevbhoomiWeather('snow')">❄️ Sacred Snowfall</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Export Artwork Modal -->
+  <div class="modal-overlay" id="exportModal" onclick="if(event.target === this) closeExportModal()">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Export Your Artwork</h3>
+        <button class="hud-btn" onclick="closeExportModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="export-option-row" onclick="exportArtwork('png-with-bg')">
+          <div class="export-option-info">
+            <h5>High-Res PNG (with Background)</h5>
+            <p>Crisp 860x860 PNG with current canvas tone & color.</p>
+          </div>
+          <i class="fa-solid fa-image" style="color: var(--primary); font-size: 20px;"></i>
+        </div>
+
+        <div class="export-option-row" onclick="exportArtwork('png-transparent')">
+          <div class="export-option-info">
+            <h5>Transparent PNG</h5>
+            <p>Export only drawn mandala strokes without any background.</p>
+          </div>
+          <i class="fa-solid fa-layer-group" style="color: var(--accent); font-size: 20px;"></i>
+        </div>
+
+        <div class="export-option-row" onclick="exportArtwork('png-framed')">
+          <div class="export-option-info">
+            <h5>Framed Heritage Masterpiece (PNG)</h5>
+            <p>Ornate golden frame with authentic Virasya seal for exhibition.</p>
+          </div>
+          <i class="fa-solid fa-award" style="color: #ffd700; font-size: 20px;"></i>
+        </div>
+
+        <div class="export-option-row" onclick="exportArtwork('svg')">
+          <div class="export-option-info">
+            <h5>Scalable Vector (SVG)</h5>
+            <p>Vector format ideal for precision cutting, printing, or laser engraving.</p>
+          </div>
+          <i class="fa-solid fa-bezier-curve" style="color: #2ed573; font-size: 20px;"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to Top" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Minimized Footer -->
+  <footer>
+    <div class="brand">
+      <div class="brand-mark">ॐ</div>
+      <div class="brand-title">VIRASYA</div>
+    </div>
+    <p>Preserving India's 5,000-year sacred cultural legacy for generations to come.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/artStudio.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script>
+    // URL parameter tab switcher (e.g. simulator.html?tab=rhythms)
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const tab = params.get("tab");
+      if (tab && window.switchSimulatorTab) {
+        const tabMap = {
+          artStudio: 0,
+          canvas: 0,
+          rhythms: 1,
+          monuments: 2,
+          devbhoomi: 3
+        };
+        const tabIndex = tabMap[tab];
+        if (tabIndex !== undefined) {
+          const navTabs = document.querySelectorAll(".sim-nav-tab");
+          if (navTabs[tabIndex]) navTabs[tabIndex].click();
+        }
+      }
+
+      // Back to top scroll listener
+      const backToTopBtn = document.getElementById("backToTopBtn");
+      window.addEventListener("scroll", () => {
+        if (backToTopBtn) {
+          if (window.scrollY > 350) {
+            backToTopBtn.classList.add("visible");
+          } else {
+            backToTopBtn.classList.remove("visible");
+          }
+        }
+      }, { passive: true });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,563 @@
+[
+  {
+    "state": "Maharashtra",
+    "culture": {
+      "traditions": [
+        "Lavani folk dance performed to the rhythmic beats of Dholki",
+        "Palkhi festival honoring Sant Dnyaneshwar and Sant Tukaram",
+        "Gudhi Padwa (Marathi New Year) marking spring harvest and victory",
+        "Traditional Paithani saree weaving with pure gold zari borders",
+        "Dahi Handi celebrations during Krishna Janmashtami"
+      ],
+      "clothing": [
+        "Nauvari saree (nine-yard Maharashtrian drape)",
+        "Kolhapuri chappals (vegetable-dyed hand-stitched leather footwear)",
+        "Dhoti-Kurta with Pagadi or Pheta headdress",
+        "Traditional Kolhapuri Saaj gold necklace and Nath (nose ring)"
+      ],
+      "food": [
+        "Puran Poli (sweet stuffed jaggery and lentil flatbread)",
+        "Misal Pav (spicy sprouted moth bean curry with farsan)",
+        "Vada Pav (spiced potato fritter in soft pav)",
+        "Pithla Bhakri (spiced gram flour porridge with millet bread)",
+        "Modak (sweet steamed rice flour dumplings filled with coconut and jaggery)"
+      ],
+      "dance": [
+        "Lavani",
+        "Koli Dance (Fisherfolk folk dance)",
+        "Dhangari Gaja (Shepherd dance)",
+        "Powada (Heroic ballad dance)",
+        "Lezim (Rhythmic cymbal folk dance)"
+      ],
+      "music": [
+        "Natya Sangeet (Dramatic musical theater)",
+        "Abhang & Bhajan devotional songs by Varkari saints",
+        "Bhavgeet (Poetic lyric music)",
+        "Lavani dholki rhythm"
+      ]
+    },
+    "heritage": [
+      {
+        "name": "Ajanta & Ellora Caves",
+        "description": "UNESCO World Heritage rock-cut Buddhist, Hindu, and Jain cave monuments dating from 2nd century BCE featuring exquisite murals and the monolithic Kailasa Temple.",
+        "location": "Chhatrapati Sambhajinagar (Aurangabad), Maharashtra"
+      },
+      {
+        "name": "Raigad Fort & Chhatrapati Shivaji Maharaj Capital",
+        "description": "Majestic hill fortress served as the sovereign capital of the Maratha Empire under Chhatrapati Shivaji Maharaj.",
+        "location": "Raigad District, Western Ghats"
+      },
+      {
+        "name": "Gateway of India & Elephanta Caves",
+        "description": "Iconic basalt arch on Mumbai harbor overlooking the Arabian Sea, leading by ferry to rock-cut Trimurti Shiva sculpture at Elephanta Island.",
+        "location": "Mumbai, Maharashtra"
+      },
+      {
+        "name": "Shaniwar Wada",
+        "description": "Historical 18th-century seven-story fortification seat of the Peshwa rulers of the Maratha Empire.",
+        "location": "Pune, Maharashtra"
+      }
+    ],
+    "festivals": [
+      {
+        "name": "Ganesh Chaturthi",
+        "description": "10-day grand festival celebrating Lord Ganesha with home sthapana, vibrant street pandals, Dhol-Tasha troupes, and Visarjan processions.",
+        "significance": "Celebrates the birth of Lord Ganesha, patron of intellect and remover of obstacles; popularized as a public festival by Lokmanya Tilak."
+      },
+      {
+        "name": "Gudhi Padwa",
+        "description": "Traditional Maharashtrian New Year celebrated by hoisting a decorated Gudhi (victory flag) outside homes.",
+        "significance": "Marks the start of Chaitra month and the harvest season, symbolizing victory and prosperity."
+      },
+      {
+        "name": "Pandharpur Wari (Palkhi Yatra)",
+        "description": "21-day pilgrimage of over a million Varkaris walking barefoot singing Abhangs to the Vithoba Temple at Pandharpur.",
+        "significance": "Celebrates universal devotion, saintly brotherhood, and selfless bhakti across all social spheres."
+      }
+    ],
+    "history": [
+      {
+        "title": "Rise of the Maratha Empire",
+        "description": "Founded in the 17th century by Chhatrapati Shivaji Maharaj through strategic guerrilla warfare (Ganimi Kava), building a sovereign Hindu Swarajya.",
+        "period": "1674 – 1818 CE"
+      },
+      {
+        "title": "Satavahana and Rashtrakuta Dynasties",
+        "description": "Ancient golden era responsible for rock-cut architectural marvels like Ajanta, Ellora, and Karle caves.",
+        "period": "230 BCE – 982 CE"
+      }
+    ],
+    "artsAndCrafts": [
+      {
+        "name": "Warli Tribal Art",
+        "description": "Indigenous prehistoric tribal painting using white rice paste mixed with water and gum on ochre mud walls, using basic geometric shapes (circle, triangle, square) to illustrate daily village life, harvest, and Tarpa dances.",
+        "materials": "Rice paste, red ochre mud, bamboo twigs",
+        "region": "Palghar and Thane districts, Northern Maharashtra"
+      },
+      {
+        "name": "Paithani Silk Weaving",
+        "description": "Royal handwoven silk saree with intricate peacock motifs (Mor bangadi) and pure gold and silver zari pallu, crafted in Paithan for over 2,000 years.",
+        "materials": "Mulberry silk, pure gold/silver zari",
+        "region": "Paithan and Yeola, Maharashtra"
+      },
+      {
+        "name": "Kolhapuri Chappals",
+        "description": "Handcrafted, vegetable-tanned leather footwear with distinctive braided straps and pom-poms, completely biodegradable and crafted by traditional artisans.",
+        "materials": "Vegetable-tanned leather, natural dyes",
+        "region": "Kolhapur, Maharashtra"
+      }
+    ]
+  },
+  {
+    "state": "Uttarakhand",
+    "culture": {
+      "traditions": [
+        "Aipan ritual floor and wall art painted with Geru and Biswar",
+        "Jaggar spirit invocation musical rituals honoring local deities (Golju Devta, Nanda Devi)",
+        "Kumbh and Ardh Kumbh Mela pilgrimages along sacred Ganga riverbanks",
+        "Ringal bamboo craft weaving for hill household utility",
+        "Ghee Sankranti (Olgia) harvest thanksgiving festival"
+      ],
+      "clothing": [
+        "Pichora (Sacred saffron-yellow dyed drape with red dot motifs worn during weddings)",
+        "Pauwal and Chola woolen gowns",
+        "Traditional Nathuli (Large circular gold nose ring studded with rubies and pearls)",
+        "Galobandh (Choker necklace made of gold square plaques)"
+      ],
+      "food": [
+        "Kafuli (Nutritious spinach and fenugreek puree cooked in an iron pan)",
+        "Chainsoo (Slow-roasted black gram Urad dal curry cooked with spices)",
+        "Bhaang ki Chutney (Tangy chutney made from roasted hemp seeds, mint, and lemon)",
+        "Bal Mithai (Roasted Khoya fudge coated with sugar white balls from Almora)",
+        "Singodi (Mawa sweet flavored with cardamom and wrapped in fragrant Maalu leaves)",
+        "Aloo ke Gutke (Spiced pan-fried mountain potatoes seasoned with Jamboo herbs)"
+      ],
+      "dance": [
+        "Choliya (Ancient martial sword dance of Kumaon)",
+        "Jhora (Community circular folk dance)",
+        "Chhapeli (Romantic couple dance accompanied by Hurka drum)",
+        "Langvir Nritya (Acrobatic balancing dance of Garhwal)",
+        "Pandav Nritya (Reenactment of Mahabharata Pandava lore)"
+      ],
+      "music": [
+        "Hurkiya Bol (Agricultural ballad singing accompanied by Hurka drum)",
+        "Mangal Geet (Auspicious wedding and ceremony chants)",
+        "Nyoli (Lyrical mountain love ballads)",
+        "Jaggar devotional folk epics"
+      ]
+    },
+    "heritage": [
+      {
+        "name": "Kedarnath Temple",
+        "description": "One of the twelve sacred Jyotirlingas of Lord Shiva situated at 3,583 meters near the Mandakini River in the Garhwal Himalayas, built with gigantic grey stone slabs.",
+        "location": "Rudraprayag District, Uttarakhand"
+      },
+      {
+        "name": "Badrinath Temple",
+        "description": "Prominent Char Dham pilgrimage shrine dedicated to Lord Vishnu, situated between Nar and Narayana mountain ranges along the Alaknanda River.",
+        "location": "Chamoli District, Uttarakhand"
+      },
+      {
+        "name": "Jageshwar Dham",
+        "description": "Sprawling cluster of 124 ancient stone temples dedicated to Lord Shiva dating from 7th to 12th century CE, nestled amidst dense Deodar pine forests.",
+        "location": "Almora District, Uttarakhand"
+      },
+      {
+        "name": "Valley of Flowers & Nanda Devi National Park",
+        "description": "UNESCO World Heritage Site renowned for its endemic alpine meadows, rare Himalayan flora, and snow leopard sanctuaries.",
+        "location": "Chamoli District, Western Himalayas"
+      },
+      {
+        "name": "Tungnath Temple",
+        "description": "The highest Shiva temple in the world (3,680 meters) and one of the holy Panch Kedar temples.",
+        "location": "Rudraprayag, Uttarakhand"
+      }
+    ],
+    "festivals": [
+      {
+        "name": "Nanda Devi Raj Jat Yatra",
+        "description": "Grand 280 km 3-week Himalayan pilgrimage held every 12 years following the sacred four-horned ram to Homkund.",
+        "significance": "Bids heartfelt farewell to Goddess Nanda Devi as she departs for her celestial abode with Lord Shiva."
+      },
+      {
+        "name": "Phool Dei",
+        "description": "Spring harvest festival where young children place freshly bloomed wild flowers on household doorsteps wishing happiness and prosperity.",
+        "significance": "Celebrates nature's spring blossoming and mountain agricultural renewal in Chaitra."
+      },
+      {
+        "name": "Ganga Aarti at Har Ki Pauri, Haridwar",
+        "description": "Mesmerizing evening prayer ceremony along the riverbanks of the Ganges with thousands of floating earthen diyas and Vedic chanting.",
+        "significance": "Worship of the divine Mother Ganga for spiritual purification and blessings."
+      }
+    ],
+    "history": [
+      {
+        "title": "Katyuri and Chand Dynasties",
+        "description": "Ancient medieval rulers of Kumaon responsible for temple construction, architectural stone carvings, and cultural golden age.",
+        "period": "8th – 18th Century CE"
+      },
+      {
+        "title": "Garhwal Kingdom & Panwar Dynasty",
+        "description": "Unification of 52 mountain chieftains (Garhs) under King Kanakpal establishing the Garhwal Kingdom.",
+        "period": "888 – 1949 CE"
+      }
+    ],
+    "artsAndCrafts": [
+      {
+        "name": "Aipan Folk Art",
+        "description": "Sacred geometric ritual art drawn on brick-red terracotta Geru backgrounds using ground rice paste (Biswar) on doorways, courtyards, and puja altars.",
+        "materials": "Geru (Red ochre paste), Biswar (Wet rice flour paste)",
+        "region": "Kumaon and Garhwal regions, Uttarakhand"
+      },
+      {
+        "name": "Ringal Bamboo Craft",
+        "description": "Eco-friendly, tightly woven baskets (Mosta, Kandi), mats, and containers handcrafted from resilient hill dwarf bamboo shoots.",
+        "materials": "Ringal bamboo (Arundinaria falcata)",
+        "region": "Chamoli, Rudraprayag, and Pithoragarh"
+      },
+      {
+        "name": "Himalayan Wool & Pashmina Weaving",
+        "description": "Hand-spun virgin sheep wool and mountain goat Pashmina shawls, blankets (Thulma, Pankhi), and tweed rugs woven on pit looms.",
+        "materials": "Himalayan sheep wool, Pashmina goat cashmere",
+        "region": "Dharchula, Munsiyari, and Uttarkashi"
+      }
+    ]
+  },
+  {
+    "state": "Jharkhand",
+    "culture": {
+      "traditions": [
+        "Sarhul nature festival celebrating the sacred Sal tree blossoms",
+        "Karma festival worshiping the Karma tree for prosperity and fertility",
+        "Sohrai harvest mural paintings by Santhal, Munda, and Oraon tribes",
+        "Dokra non-ferrous lost-wax metal craft traditions",
+        "Karam Puja sibling bond rituals"
+      ],
+      "clothing": [
+        "Panchi and Parhan (Traditional two-piece cotton handloom attire of tribal women)",
+        "Bhagwan and Gamchha for men",
+        "Handmade bell-metal and silver Hasli and Tarpat ornaments",
+        "Bead and coin tribal headbands and anklets"
+      ],
+      "food": [
+        "Dhuska (Deep-fried savory pancakes made from rice and chana dal batter, served with spicy potato gram curry)",
+        "Litti Chokha (Roasted whole wheat dough balls stuffed with spiced sattu, served with roasted eggplant mash)",
+        "Rugra (Wild button mushrooms gathered from deep Sal forests during monsoons)",
+        "Arsa Roti (Sweet festive jaggery and rice flour deep-fried cakes)",
+        "Bamboo Shoot Curry (Tender fermented bamboo shoots cooked with mustard paste)"
+      ],
+      "dance": [
+        "Chhau Dance (Purulia/Seraikela masked martial dance recognized by UNESCO)",
+        "Jhumair (Rhythmic folk dance performed during harvest season)",
+        "Paika (Energetic martial sword dance performed with shields)",
+        "Domkach (Joyful wedding home dance of women)",
+        "Santhali Dance (Coordinated line dance with Madal drums)"
+      ],
+      "music": [
+        "Madal, Dhol, and Nagada rhythmic percussion ensembles",
+        "Bansi (Bamboo flute) pastoral melodies",
+        "Karam and Sarhul seasonal folk songs"
+      ]
+    },
+    "heritage": [
+      {
+        "name": "Baidyanath Jyotirlinga Temple, Deoghar",
+        "description": "One of the 51 Shakti Peethas and one of the 12 sacred Jyotirlingas of Lord Shiva, destination of the millions-strong Shravani Mela pilgrimage.",
+        "location": "Deoghar, Jharkhand"
+      },
+      {
+        "name": "Maluti Terracotta Temples",
+        "description": "Enchanting cluster of 72 historic 17th-century terracotta temples depicting scenes from the Ramayana and Mahabharata.",
+        "location": "Dumka District, Jharkhand"
+      },
+      {
+        "name": "Parasnath Hill (Shikharji)",
+        "description": "Holiest Jain pilgrimage site where twenty of the twenty-four Tirthankaras attained Moksha (nirvana).",
+        "location": "Giridih District, Jharkhand"
+      },
+      {
+        "name": "Betla National Park & Palamau Forts",
+        "description": "Historic double fortresses of the Chero dynasty surrounded by lush teak forests and tiger reserve.",
+        "location": "Latehar District, Jharkhand"
+      }
+    ],
+    "festivals": [
+      {
+        "name": "Sarhul",
+        "description": "Most prominent tribal spring festival where the village priest (Pahan) offers Sal blossoms and sacrifices to Mother Earth (Dharti Mata).",
+        "significance": "Celebrates the cosmic union of Sun and Earth and heralds the agricultural new year."
+      },
+      {
+        "name": "Karam Festival",
+        "description": "Youth celebration where branches of the holy Karam tree are planted in the village square, danced around, and venerated.",
+        "significance": "Invokes deity Karam Devta for good harvest, youthful vitality, and fraternal protection."
+      },
+      {
+        "name": "Sohrai & Khovar Festivities",
+        "description": "Post-Diwali cattle thanksgiving where women paint stunning animal, bird, and forest motifs across mud home walls.",
+        "significance": "Honors domesticated cattle and domestic harmony with wildlife."
+      }
+    ],
+    "history": [
+      {
+        "title": "Birsa Munda and the Ulgulan Movement",
+        "description": "Great tribal freedom uprising led by Bhagwan Birsa Munda against British colonial exploitation and feudal land seizures.",
+        "period": "1899 – 1900 CE"
+      },
+      {
+        "title": "Chero and Nagvanshi Dynasties",
+        "description": "Indigenous royal dynasties who ruled the Chota Nagpur plateau for over a millennium, preserving tribal autonomy.",
+        "period": "1st – 19th Century CE"
+      }
+    ],
+    "artsAndCrafts": [
+      {
+        "name": "Dokra Metal Craft",
+        "description": "Ancient non-ferrous lost-wax bronze and brass casting art form practiced for over 4,000 years, depicting tribal deities, elephants, lamps, and daily rituals.",
+        "materials": "Beeswax, clay, brass and bell-metal scrap",
+        "region": "Dumka, Hazaribagh, and Ranchi districts"
+      },
+      {
+        "name": "Sohrai & Khovar Painting (GI Tagged)",
+        "description": "Indigenous mural and canvas art created with natural clay soils (red, black, white, and yellow), depicting flora, fauna, and fertility symbols.",
+        "materials": "Natural clay pigments (Charak mati, Dudhi mati), combs, broken twigs",
+        "region": "Hazaribagh District, Jharkhand"
+      },
+      {
+        "name": "Tribal Bamboo and Wood Artifacts",
+        "description": "Handcrafted bamboo bow-and-arrows, fish traps (Kumni), musical flutes, and hand-carved wooden tobacco containers.",
+        "materials": "Sal wood, hill bamboo",
+        "region": "Ranchi, Khunti, and West Singhbhum"
+      }
+    ]
+  },
+  {
+    "state": "Rajasthan",
+    "culture": {
+      "traditions": [
+        "Royal hospitality tradition encapsulated in 'Padharo Mhare Desh'",
+        "Puppetry (Kathputli) folk storytelling of heroic legends like Amar Singh Rathore",
+        "Desert camel trade fairs (Pushkar Camel Fair)",
+        "Ghoomar and Kalbelia folk dances performed during Teej and Gangaur",
+        "Bandhani tie-dye and Block print textile heritage"
+      ],
+      "clothing": [
+        "Ghagra Choli with Odhna (Veil decorated with Gota Patti and mirror work)",
+        "Angrakha jacket and Dhoti paired with colorful Rajputi Pagri / Safa turban",
+        "Kundan and Meenakari polki jewelry, Borla head ornament, and Aad necklace",
+        "Embroidered leather Mojari and Jutti footwear"
+      ],
+      "food": [
+        "Dal Baati Churma (Baked whole wheat dumplings with spicy lentil curry and sweet crushed wheat dessert)",
+        "Laal Maas (Fiery mutton curry prepared with Mathania red chillies and mustard oil)",
+        "Gatte ki Sabzi (Gram flour dumplings cooked in a spiced yogurt gravy)",
+        "Ker Sangri (Desert berry and bean stir fry flavored with dry mango powder)",
+        "Ghevar (Disc-shaped honeycomb sweet soaked in saffron sugar syrup, topped with rabdi and silver vark)",
+        "Pyaaz Kachori (Flaky deep-fried pastry stuffed with spicy onion filling from Jodhpur)"
+      ],
+      "dance": [
+        "Ghoomar (Graceful pirouetting royal folk dance of Bhil and Rajput women)",
+        "Kalbelia (Sensuous serpent-like dance performed by the nomadic snake-charmer tribe, UNESCO listed)",
+        "Bhavai (Acrobatic folk dance balancing 7 to 9 brass pots on the head while dancing on swords or glasses)",
+        "Chari (Dance balancing flaming brass pots on the head)",
+        "Kachhi Ghodi (Dummy horse mock warrior dance)"
+      ],
+      "music": [
+        "Manganiyar and Langa folk music traditions playing Kamayacha, Sarangi, and Khartal",
+        "Maand royal court singing",
+        "Pabuji ki Phad epic musical scroll recitations"
+      ]
+    },
+    "heritage": [
+      {
+        "name": "Amber Fort & Palace, Jaipur",
+        "description": "Spectacular UNESCO World Heritage hill fort overlooking Maota Lake, famous for its Sheesh Mahal (Mirror Palace) and Rajput-Mughal architectural blend.",
+        "location": "Jaipur, Rajasthan"
+      },
+      {
+        "name": "Mehrangarh Fort, Jodhpur",
+        "description": "One of India's largest and most formidable fortresses towering 400 feet above the Blue City of Jodhpur.",
+        "location": "Jodhpur, Rajasthan"
+      },
+      {
+        "name": "City Palace & Lake Pichola, Udaipur",
+        "description": "Magnificent royal palace complex built over 400 years on the eastern banks of Lake Pichola, featuring marble balconies and mosaic peacocks.",
+        "location": "Udaipur, Rajasthan"
+      },
+      {
+        "name": "Jaisalmer Fort (Sonar Qila)",
+        "description": "Living golden sandstone fortress rising out of the Thar Desert dunes, housing centuries-old Jain temples and merchant havelis.",
+        "location": "Jaisalmer, Rajasthan"
+      },
+      {
+        "name": "Hawa Mahal (Palace of Winds)",
+        "description": "Five-story pink sandstone honeycomb facade with 953 jharokhas built for royal ladies to view street festivals.",
+        "location": "Jaipur, Rajasthan"
+      }
+    ],
+    "festivals": [
+      {
+        "name": "Pushkar Camel Fair",
+        "description": "World-famous annual five-day livestock and cultural fair on the shores of holy Pushkar Lake, featuring camel races and folk music.",
+        "significance": "Combines holy Kartik Purnima pilgrimage with vibrant desert commerce."
+      },
+      {
+        "name": "Gangaur Festival",
+        "description": "Vibrant spring festival worshiping Gauri (Goddess Parvati) and Lord Shiva with ornate palanquin street processions.",
+        "significance": "Celebrates marital fidelity, harvest abundance, and springtime bliss."
+      },
+      {
+        "name": "Teej Festival",
+        "description": "Monsoon celebration with swings, Mehendi, traditional Ghevar sweets, and royal idol processions.",
+        "significance": "Welcomes the arrival of the life-giving Indian monsoon."
+      }
+    ],
+    "history": [
+      {
+        "title": "Rajput Kingdoms and Chivalric Code",
+        "description": "Legendary Rajput clans (Mewar, Marwar, Amber) known for valor, sacrifice, and patronizing grand palace architecture.",
+        "period": "6th – 20th Century CE"
+      },
+      {
+        "title": "Maharana Pratap and the Battle of Haldighati",
+        "description": "Fierce defiance by the King of Mewar defending independence against Mughal forces in 1576.",
+        "period": "1576 CE"
+      }
+    ],
+    "artsAndCrafts": [
+      {
+        "name": "Jaipur Blue Pottery",
+        "description": "Turquoise-glazed quartz pottery with Persian floral motifs, handcrafted in Jaipur without traditional clay using quartz powder, Fuller's earth, and natural gum.",
+        "materials": "Quartz stone powder, glass, Fuller's earth (Multani Mitti), copper oxide glaze",
+        "region": "Jaipur and Kotjewar, Rajasthan"
+      },
+      {
+        "name": "Bandhani & Leheriya Tie-Dye",
+        "description": "Intricate resist tie-dye fabric art producing kaleidoscopic dots (Bandhani) and wave patterns (Leheriya) on fine cotton and silk georgette.",
+        "materials": "Silk, cotton, natural vegetable dyes",
+        "region": "Jodhpur, Jaipur, and Bikaner"
+      },
+      {
+        "name": "Sanganeri & Bagru Block Printing",
+        "description": "Century-old hand-block printing using hand-carved teak wood blocks with natural madder, indigo, and turmeric mineral dyes.",
+        "materials": "Teak wood blocks, natural vegetable dyes, handloom cotton",
+        "region": "Sanganer and Bagru, Rajasthan"
+      },
+      {
+        "name": "Sheesham Wood Carving & Jharokhas",
+        "description": "Finely carved lattice wooden windows, royal screens, and antiqued furniture inlaid with brass filigree.",
+        "materials": "Sheesham wood, brass inlays",
+        "region": "Jodhpur and Barmer"
+      }
+    ]
+  },
+  {
+    "state": "Punjab",
+    "culture": {
+      "traditions": [
+        "Langar community kitchen tradition serving free nutritious meals with equality and humility",
+        "Bhangra and Giddha energetic folk dances celebrating Baisakhi harvest",
+        "Gatka traditional Sikh martial arts using wooden sticks and swords",
+        "Phulkari floral embroidery on handspun khaddar",
+        "Dhol beats accompanying every joyful celebration"
+      ],
+      "clothing": [
+        "Phulkari Dupatta (Embroidered headscarf with silk floss threads)",
+        "Patiala Salwar Kameez with Paranda braided hair tassels",
+        "Kurta-Pajama with colorful Pagri (Turban) and embroidered jacket",
+        "Handcrafted leather Punjabi Jutti with golden Tilla embroidery"
+      ],
+      "food": [
+        "Makki di Roti & Sarson da Saag (Cornmeal flatbread served with slow-cooked mustard greens and white butter)",
+        "Butter Chicken (Tandoori chicken simmered in rich creamy tomato and cashew butter gravy)",
+        "Amritsari Kulcha with Chole (Crispy multi-layered stuffed potato bread from tandoor ovens)",
+        "Pinni (Traditional winter sweet made from whole wheat flour, roasted nuts, mawa, and desi ghee)",
+        "Lassi (Rich sweet yogurt drink topped with a thick dollop of clotted cream/malai)"
+      ],
+      "dance": [
+        "Bhangra (High-energy harvest folk dance performed to the beat of the Dhol)",
+        "Giddha (Graceful clap-and-rhyme folk dance performed by women)",
+        "Sammi (Poetic traditional dance of tribal women of the Sandalbar region)",
+        "Jhumar (Slow, ecstatic circular dance of men)",
+        "Malwai Giddha (Folk dance of elderly men using instruments like Chimta and Kato)"
+      ],
+      "music": [
+        "Sufi Qawwalis and poetry of Bulleh Shah and Waris Shah (Heer Ranjha)",
+        "Tumbi and Dhol folk melodies",
+        "Shabad Kirtan (Sacred devotional Sikh hymns sung in classical ragas)",
+        "Boliyaan (Couplets sung during Giddha and Bhangra)"
+      ]
+    },
+    "heritage": [
+      {
+        "name": "Sri Harmandir Sahib (The Golden Temple)",
+        "description": "Preeminent spiritual site of Sikhism situated in the heart of Amritsar, coated with 500 kg of pure gold leaf surrounded by the sacred Amrit Sarovar (Pool of Nectar).",
+        "location": "Amritsar, Punjab"
+      },
+      {
+        "name": "Jallianwala Bagh Memorial",
+        "description": "Historic public garden and memorial to the hundreds of peaceful freedom demonstrators killed in the tragic 1919 massacre.",
+        "location": "Amritsar, Punjab"
+      },
+      {
+        "name": "Qila Mubarak, Bathinda",
+        "description": "Ancient brick fortress dating back to the Kushan period (90–110 CE), where Razia Sultana was historically imprisoned in 1240 CE.",
+        "location": "Bathinda, Punjab"
+      },
+      {
+        "name": "Virasat-e-Khalsa",
+        "description": "Spectacular modern architectural museum celebrating 500 years of Sikh history and culture designed by Moshe Safdie.",
+        "location": "Anandpur Sahib, Punjab"
+      }
+    ],
+    "festivals": [
+      {
+        "name": "Baisakhi",
+        "description": "Harvest festival of Punjab and celebration of the founding of the Khalsa Panth by Guru Gobind Singh Ji in 1699 CE.",
+        "significance": "Celebrates the spring Rabi wheat harvest and spiritual sovereignty."
+      },
+      {
+        "name": "Lohri",
+        "description": "Winter bonfire festival celebrated with sesame sweets, rewri, peanuts, and singing folk songs like 'Sundar Mundariye'.",
+        "significance": "Marks the winter solstice and passing of the coldest month, celebrating newborn babies and marriages."
+      },
+      {
+        "name": "Hola Mohalla",
+        "description": "Three-day martial arts, tent pegging, horse riding, and poetry congregation held at Anandpur Sahib right after Holi.",
+        "significance": "Demonstrates military preparedness, courage, and community solidarity."
+      }
+    ],
+    "history": [
+      {
+        "title": "Establishment of Sikhism & The Ten Gurus",
+        "description": "Spiritual lineage founded by Guru Nanak Dev Ji emphasizing universal equality, one God (Ik Onkar), and honest hard work (Kirat Karo).",
+        "period": "1469 – 1708 CE"
+      },
+      {
+        "title": "Sikh Empire under Maharaja Ranjit Singh",
+        "description": "Golden era of sovereign Punjab, modernizing administration and safeguarding religious pluralism across northwest India.",
+        "period": "1799 – 1849 CE"
+      }
+    ],
+    "artsAndCrafts": [
+      {
+        "name": "Phulkari Embroidery",
+        "description": "Vibrant geometric and floral embroidery on coarse handspun khaddar fabric using untwisted silk floss (Pat) threads, traditionally passed down as heirlooms to brides.",
+        "materials": "Khaddar cotton fabric, Pat silk floss threads",
+        "region": "Patiala, Amritsar, and Jalandhar"
+      },
+      {
+        "name": "Punjabi Jutti (Tilla Work)",
+        "description": "Handmade curved leather footwear embellished with golden and silver metallic wire (Tilla), beads, and silk threads, uniquely designed without left/right distinction.",
+        "materials": "Genuine leather, metallic Tilla embroidery wire",
+        "region": "Muktsar, Fazilka, and Patiala"
+      },
+      {
+        "name": "Thathera Metal Craft of Jandiala Guru (UNESCO)",
+        "description": "Traditional brass and copper utensil crafting technique hammering heated metal into functional culinary vessels.",
+        "materials": "Brass, copper, zinc",
+        "region": "Jandiala Guru, Amritsar District"
+      }
+    ]
+  }
+]

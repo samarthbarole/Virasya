@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRASYA | Uttarakhand — Devbhoomi, Land of Gods</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Chatbot Stylesheet -->
+    <link rel="stylesheet" href="css/chatbot.css">
+
+    <style>
+        /* =========================
+           ROOT THEME
+        ========================= */
+        :root {
+            --haldi: #f2b632;
+            --gold: #d58b16;
+            --deep-orange: #a94712;
+            --burnt-orange: #c75b18;
+            --dark-brown: #4b210e;
+            --brown: #713414;
+            --cream: #fff3d5;
+            --paper: #f7e3b5;
+            --light-paper: #fff8e8;
+            --dark: #241207;
+            --gold-glow: rgba(242, 182, 50, 0.45);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-brown);
+            background:
+                radial-gradient(circle at center, rgba(255, 255, 255, .4), transparent 50%),
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(120, 70, 20, .025) 0px,
+                    rgba(120, 70, 20, .025) 1px,
+                    transparent 1px,
+                    transparent 4px
+                ),
+                var(--cream);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 5%;
+            background: linear-gradient(
+                rgba(42, 16, 4, 0.92),
+                rgba(60, 22, 5, 0.85)
+            );
+            border-bottom: 1px solid rgba(255, 193, 70, .5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 12px 5%;
+            background: rgba(36, 14, 4, 0.96);
+            border-bottom: 1px solid rgba(255, 214, 107, 0.7);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffd66b;
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .logo-symbol {
+            width: 42px;
+            height: 42px;
+            border: 2px solid var(--haldi);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--haldi);
+            box-shadow: 0 0 12px var(--gold-glow);
+        }
+
+        .logo small {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 8px;
+            letter-spacing: 2px;
+            color: #ffe4a0;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff5dc;
+            font-size: 13px;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            font-weight: 600;
+            transition: .3s;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            color: var(--haldi);
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--haldi);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links .active::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .explore-btn {
+            background: linear-gradient(135deg, #e7a625, #b85a12);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 12px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(184, 90, 18, 0.35);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .explore-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #f2b632, #c75b18);
+            box-shadow: 0 6px 20px rgba(242, 182, 50, 0.5);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(40, 15, 3, .93) 0%,
+                    rgba(85, 30, 5, .72) 42%,
+                    rgba(90, 35, 5, .20) 80%
+                ),
+                url("https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=2200&q=90") center/cover no-repeat;
+            padding-top: 80px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 45px;
+            background: var(--cream);
+            clip-path: polygon(
+                0 65%, 5% 80%, 10% 65%, 15% 85%, 20% 65%, 25% 80%,
+                30% 65%, 35% 85%, 40% 65%, 45% 80%, 50% 65%, 55% 85%,
+                60% 65%, 65% 80%, 70% 65%, 75% 85%, 80% 65%, 85% 80%,
+                90% 65%, 95% 80%, 100% 65%, 100% 100%, 0 100%
+            );
+            z-index: 10;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            max-width: 680px;
+            margin-left: 8%;
+            padding: 40px 0;
+            animation: heroFadeIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+
+        .eyebrow {
+            color: var(--haldi);
+            letter-spacing: 7px;
+            font-size: 13px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            color: #fff4d6;
+            font-size: clamp(48px, 7.5vw, 92px);
+            line-height: 1;
+            letter-spacing: 5px;
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h2 {
+            margin-top: 15px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #ffd36b;
+            font-size: clamp(22px, 3.2vw, 32px);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            margin-top: 22px;
+            max-width: 520px;
+            color: #fff0ce;
+            line-height: 1.8;
+            font-size: 15px;
+            font-weight: 300;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            background: linear-gradient(135deg, #f0b52e, #b74d0d);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.35s ease;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: linear-gradient(135deg, #ffd36b, #c75b18);
+            box-shadow: 0 12px 30px rgba(242, 182, 50, 0.5);
+        }
+
+        .hero-back-link {
+            color: #ffe4a0;
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 214, 107, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .hero-back-link:hover {
+            background: rgba(242, 182, 50, 0.25);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           SECTION COMMON
+        ========================= */
+        section {
+            padding: 85px 6%;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            color: var(--deep-orange);
+            font-size: clamp(26px, 3.5vw, 36px);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #7c4a27;
+            margin-bottom: 45px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 17px;
+        }
+
+        .ornament {
+            text-align: center;
+            color: var(--gold);
+            font-size: 20px;
+            margin-bottom: 8px;
+            letter-spacing: 6px;
+        }
+
+        /* =========================
+           ESSENCE
+        ========================= */
+        .essence {
+            background: linear-gradient(
+                rgba(255, 248, 225, .94),
+                rgba(246, 221, 170, .94)
+            );
+        }
+
+        .essence-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 22px;
+            max-width: 1280px;
+            margin: auto;
+        }
+
+        .essence-card {
+            text-align: center;
+            padding: 30px 18px;
+            background: rgba(255, 255, 255, 0.65);
+            border-radius: 16px;
+            border-top: 3px solid var(--gold);
+            border-left: 1px solid rgba(213, 139, 22, 0.2);
+            border-right: 1px solid rgba(213, 139, 22, 0.2);
+            border-bottom: 1px solid rgba(213, 139, 22, 0.2);
+            box-shadow: 0 6px 18px rgba(75, 33, 14, 0.08);
+            transition: all .35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .essence-card:hover {
+            transform: translateY(-8px);
+            background: #ffffff;
+            box-shadow: 0 14px 30px rgba(169, 71, 18, 0.18);
+            border-top-color: var(--haldi);
+        }
+
+        .essence-icon {
+            width: 68px;
+            height: 68px;
+            margin: auto auto 18px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            color: var(--deep-orange);
+            background: #fff2cf;
+            box-shadow: 0 4px 12px rgba(213, 139, 22, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .essence-card:hover .essence-icon {
+            transform: scale(1.1) rotate(6deg);
+            background: var(--haldi);
+            color: var(--dark-brown);
+        }
+
+        .essence-card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            color: var(--dark-brown);
+            font-weight: 700;
+        }
+
+        .essence-card p {
+            font-size: 12.5px;
+            line-height: 1.6;
+            color: #684321;
+        }
+
+        /* =========================
+           CULTURE
+        ========================= */
+        .culture {
+            background: linear-gradient(
+                rgba(80, 28, 5, .95),
+                rgba(48, 16, 4, .97)
+            );
+        }
+
+        .culture .section-title {
+            color: #ffd36b;
+        }
+
+        .culture .section-subtitle {
+            color: #f8dfac;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            max-width: 1280px;
+            margin: auto;
+        }
+
+        .culture-card {
+            position: relative;
+            overflow: hidden;
+            height: 320px;
+            border: 2px solid rgba(244, 182, 50, .6);
+            border-radius: 14px;
+            background: #2d1305;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: .4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .culture-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--haldi);
+            box-shadow: 0 16px 36px rgba(242, 182, 50, 0.25);
+        }
+
+        .culture-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: .75;
+            transition: .6s ease;
+        }
+
+        .culture-card:hover img {
+            transform: scale(1.1);
+            opacity: .92;
+        }
+
+        .culture-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 20px;
+            background: linear-gradient(
+                transparent,
+                rgba(30, 10, 2, .96) 65%
+            );
+        }
+
+        .culture-overlay h3 {
+            color: #ffd36b;
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .culture-overlay p {
+            color: #fff0cf;
+            font-size: 12.5px;
+            margin-top: 6px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           FESTIVALS
+        ========================= */
+        .festivals {
+            background: radial-gradient(
+                circle at center,
+                #fff6dd,
+                #efd49c
+            );
+        }
+
+        .festival-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1280px;
+            margin: auto;
+        }
+
+        .festival-card {
+            background: #fff8e9;
+            border: 1.5px solid #d79a36;
+            box-shadow: 0 8px 22px rgba(75, 30, 5, .15);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: .4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .festival-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--burnt-orange);
+            box-shadow: 0 16px 32px rgba(75, 30, 5, .25);
+        }
+
+        .festival-img-wrap {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .festival-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .festival-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .festival-content {
+            padding: 20px 18px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .festival-content h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--deep-orange);
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .festival-content p {
+            margin-top: 8px;
+            font-size: 12.5px;
+            color: #704a2b;
+            line-height: 1.55;
+        }
+
+        /* =========================
+           HERITAGE
+        ========================= */
+        .heritage {
+            background: #481b05;
+            color: white;
+        }
+
+        .heritage .section-title {
+            color: #ffd66b;
+        }
+
+        .heritage .section-subtitle {
+            color: #f8db9e;
+        }
+
+        .heritage-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1280px;
+            margin: auto;
+        }
+
+        .heritage-card {
+            background: #fff2d0;
+            color: var(--dark-brown);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 2px solid #d18b23;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+            transition: all 0.35s ease;
+        }
+
+        .heritage-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--haldi);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+        }
+
+        .heritage-img-wrap {
+            height: 230px;
+            overflow: hidden;
+        }
+
+        .heritage-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .heritage-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .heritage-info {
+            padding: 22px 20px;
+        }
+
+        .heritage-info h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--deep-orange);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .heritage-info p {
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 1.65;
+            color: #532d10;
+        }
+
+        /* =========================
+           FOOD
+        ========================= */
+        .food {
+            background: var(--light-paper);
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            max-width: 1280px;
+            margin: auto;
+        }
+
+        .food-card {
+            text-align: center;
+            background: #fff;
+            padding: 20px 10px;
+            border-radius: 16px;
+            border: 1px solid rgba(213, 139, 22, 0.25);
+            box-shadow: 0 6px 16px rgba(75, 30, 5, 0.08);
+            transition: all 0.35s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--gold);
+            box-shadow: 0 12px 24px rgba(213, 139, 22, 0.25);
+        }
+
+        .food-img-wrap {
+            width: 120px;
+            height: 120px;
+            margin: auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #d79928;
+            box-shadow: 0 6px 16px rgba(75, 30, 5, .2);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .food-card:hover img {
+            transform: scale(1.15);
+        }
+
+        .food-card h3 {
+            margin-top: 12px;
+            font-family: 'Cinzel', serif;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--deep-orange);
+            letter-spacing: 0.5px;
+        }
+
+        /* =========================
+           QUOTE
+        ========================= */
+        .quote {
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                linear-gradient(
+                    rgba(45, 15, 3, .80),
+                    rgba(45, 15, 3, .80)
+                ),
+                url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=80") center/cover fixed;
+            color: white;
+            padding: 60px 8%;
+        }
+
+        .quote blockquote {
+            max-width: 850px;
+            color: #ffe2a1;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(24px, 3.5vw, 34px);
+            font-style: italic;
+            line-height: 1.5;
+            text-shadow: 0 3px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            background: #240e04;
+            color: #eecb84;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 2px solid var(--gold);
+        }
+
+        footer h2 {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 5px;
+            font-size: 26px;
+            color: #ffd66b;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #e2c079;
+        }
+
+        .footer-nav {
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: var(--haldi);
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        /* =========================
+           SCROLL REVEAL & MOTION SYSTEM
+        ========================= */
+        @keyframes devbhoomiBreathe {
+            0% {
+                background-position: center 0%;
+            }
+            50% {
+                background-position: center 4%;
+            }
+            100% {
+                background-position: center 2%;
+            }
+        }
+
+        .hero {
+            animation: devbhoomiBreathe 28s ease-in-out infinite alternate;
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s ease;
+            will-change: opacity, transform;
+            filter: blur(2px);
+        }
+
+        .reveal-on-scroll.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        .reveal-on-scroll.delay-1 { transition-delay: 0.1s; }
+        .reveal-on-scroll.delay-2 { transition-delay: 0.2s; }
+        .reveal-on-scroll.delay-3 { transition-delay: 0.3s; }
+        .reveal-on-scroll.delay-4 { transition-delay: 0.4s; }
+        .reveal-on-scroll.delay-5 { transition-delay: 0.5s; }
+        .reveal-on-scroll.delay-6 { transition-delay: 0.6s; }
+
+        /* Shimmer Light Sweep on Cards */
+        .essence-card::after,
+        .culture-card::after,
+        .festival-card::after,
+        .heritage-card::after,
+        .food-card::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -70%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                transparent,
+                rgba(255, 255, 255, 0.25),
+                transparent
+            );
+            transform: rotate(25deg);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .essence-card, .festival-card, .heritage-card, .food-card {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .essence-card:hover::after,
+        .culture-card:hover::after,
+        .festival-card:hover::after,
+        .heritage-card:hover::after,
+        .food-card:hover::after {
+            opacity: 1;
+            left: 140%;
+            transition: left 0.85s ease-in-out, opacity 0.3s ease;
+        }
+
+        /* Floating Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--haldi), var(--burnt-orange));
+            color: #ffffff;
+            border: 2px solid #fff1c9;
+            box-shadow: 0 6px 20px rgba(199, 91, 24, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px) scale(0.85);
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 10px 28px rgba(242, 182, 50, 0.75);
+            background: linear-gradient(135deg, #ffd36b, var(--burnt-orange));
+            color: var(--dark-brown);
+        }
+
+        /* Keyframes */
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+        @media(max-width: 1050px) {
+            .nav-links {
+                display: none;
+            }
+            .essence-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .culture-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .festival-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .heritage-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .food-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media(max-width: 680px) {
+            .hero {
+                min-height: 80vh;
+                background-position: 65% center;
+            }
+            .hero-content {
+                margin-left: 6%;
+                margin-right: 6%;
+            }
+            .hero h1 {
+                font-size: 44px;
+            }
+            .essence-grid,
+            .culture-grid,
+            .festival-grid,
+            .heritage-list {
+                grid-template-columns: 1fr;
+            }
+            .food-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .food-img-wrap {
+                width: 100px;
+                height: 100px;
+            }
+            .logo {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-symbol">ॐ</div>
+            <div>VIRASYA</div>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#essence">Essence</a></li>
+            <li><a href="#culture">Culture</a></li>
+            <li><a href="#festivals">Festivals</a></li>
+            <li><a href="#heritage" class="active">Heritage</a></li>
+            <li><a href="#food">Flavors</a></li>
+            <li><a href="simulator.html?tab=devbhoomi">360° Tour</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <a href="index.html#map" class="explore-btn">
+                <i class="fa-solid fa-map-location-dot"></i> EXPLORE INDIA &rarr;
+            </a>
+        </div>
+    </nav>
+
+    <!-- =========================
+         HERO
+    ========================= -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <div class="eyebrow">
+                ✦ WELCOME TO DEVBHOMI ✦
+            </div>
+
+            <h1>UTTARAKHAND</h1>
+
+            <h2>Devbhoomi — Land of Gods</h2>
+
+            <p>
+                Where the Himalayas touch the sky and traditions touch the heart. Discover the timeless culture, spiritual heritage, sacred pilgrimage circuits, festivals and living traditions of Uttarakhand.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#essence" class="hero-button">
+                    DISCOVER UTTARAKHAND &rarr;
+                </a>
+                <a href="index.html" class="hero-back-link">
+                    <i class="fa-solid fa-arrow-left"></i> Virasya Main Page
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- =========================
+         ESSENCE
+    ========================= -->
+    <section class="essence reveal-on-scroll" id="essence">
+        <div class="ornament">❖ ✦ ❖</div>
+
+        <h2 class="section-title">THE ESSENCE OF UTTARAKHAND</h2>
+
+        <p class="section-subtitle">A land where nature, spirituality and tradition live together.</p>
+
+        <div class="essence-grid">
+            <div class="essence-card reveal-on-scroll delay-1">
+                <div class="essence-icon">⛰</div>
+                <h3>HIMALAYAN LANDSCAPES</h3>
+                <p>Snow-covered peaks of Nanda Devi, peaceful alpine valleys and breathtaking Himalayan natural sanctuary.</p>
+            </div>
+
+            <div class="essence-card reveal-on-scroll delay-2">
+                <div class="essence-icon">🏛</div>
+                <h3>SPIRITUAL HERITAGE</h3>
+                <p>Ancient Char Dham shrines and sacred river confluences connecting millennia of Sanatana Dharma.</p>
+            </div>
+
+            <div class="essence-card reveal-on-scroll delay-3">
+                <div class="essence-icon">♬</div>
+                <h3>RICH CULTURE</h3>
+                <p>Soulful Jhora, Chholiya sword dances, and Pahadi folk music singing of mountain legends and deities.</p>
+            </div>
+
+            <div class="essence-card reveal-on-scroll delay-4">
+                <div class="essence-icon">✥</div>
+                <h3>ARTS & CRAFTS</h3>
+                <p>Sacred Aipan floor art, ringal bamboo craftsmanship, intricate Pahadi wood carvings, and wool weaving.</p>
+            </div>
+
+            <div class="essence-card reveal-on-scroll delay-5">
+                <div class="essence-icon">🌿</div>
+                <h3>SIMPLE LIVING</h3>
+                <p>Warm-hearted communities with pure mountain hospitality and a deep reverence for nature.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         CULTURE
+    ========================= -->
+    <section class="culture reveal-on-scroll" id="culture">
+        <div class="ornament">✦</div>
+
+        <h2 class="section-title">CULTURE & TRADITIONS</h2>
+
+        <p class="section-subtitle">Stories, traditions and artistic expressions of the Himalayas.</p>
+
+        <div class="culture-grid">
+            <div class="culture-card reveal-on-scroll delay-1">
+                <img src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=900&q=85" alt="Folk dance">
+                <div class="culture-overlay">
+                    <h3>FOLK DANCE</h3>
+                    <p>Traditional Chholiya and Jhora dances that celebrate community, valor and devotion.</p>
+                </div>
+            </div>
+
+            <div class="culture-card reveal-on-scroll delay-2">
+                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=85" alt="Traditional attire">
+                <div class="culture-overlay">
+                    <h3>TRADITIONAL ATTIRE</h3>
+                    <p>Handwoven Pichhora, Ghagras, and woollen garments reflecting Himalayan identity.</p>
+                </div>
+            </div>
+
+            <div class="culture-card reveal-on-scroll delay-3">
+                <img src="https://images.unsplash.com/photo-1533630654593-bb9d9c6c0b2d?auto=format&fit=crop&w=900&q=85" alt="Folk music">
+                <div class="culture-overlay">
+                    <h3>FOLK MUSIC</h3>
+                    <p>Melodies played on Dhol-Damau, Ransingha, and flute carrying the soul of the mountains.</p>
+                </div>
+            </div>
+
+            <div class="culture-card reveal-on-scroll delay-4">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=85" alt="Handicrafts">
+                <div class="culture-overlay">
+                    <h3>HANDICRAFTS</h3>
+                    <p>Handmade Aipan art, Ringal bamboo, and copperware created by skilled local artisans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         FESTIVALS
+    ========================= -->
+    <section class="festivals reveal-on-scroll" id="festivals">
+        <div class="ornament">❖</div>
+
+        <h2 class="section-title">FESTIVALS OF UTTARAKHAND</h2>
+
+        <p class="section-subtitle">Celebrations that bring communities together in joy and prayer.</p>
+
+        <div class="festival-grid">
+            <div class="festival-card reveal-on-scroll delay-1">
+                <div class="festival-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1604608672516-f1b9c5f6f7f3?auto=format&fit=crop&w=900&q=85" alt="Nanda Devi Raj Jat">
+                </div>
+                <div class="festival-content">
+                    <h3>NANDA DEVI RAJ JAT</h3>
+                    <p>A sacred 3-week royal Himalayan pilgrimage celebrated every 12 years with deep devotion.</p>
+                </div>
+            </div>
+
+            <div class="festival-card reveal-on-scroll delay-2">
+                <div class="festival-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=900&q=85" alt="Harela festival">
+                </div>
+                <div class="festival-content">
+                    <h3>HARELA</h3>
+                    <p>A festival celebrating nature, green harvest, monsoon arrival, and family prosperity.</p>
+                </div>
+            </div>
+
+            <div class="festival-card reveal-on-scroll delay-3">
+                <div class="festival-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=900&q=85" alt="Kedarnath Yatra">
+                </div>
+                <div class="festival-content">
+                    <h3>KEDARNATH YATRA</h3>
+                    <p>A spiritual journey through snow-clad peaks that purifies the mind and spirit.</p>
+                </div>
+            </div>
+
+            <div class="festival-card reveal-on-scroll delay-4">
+                <div class="festival-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=85" alt="Folk celebration">
+                </div>
+                <div class="festival-content">
+                    <h3>GANGA DUSSEHRA</h3>
+                    <p>Celebration of the descent of Mother Ganga with grand evening Maha Aartis in Haridwar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         HERITAGE
+    ========================= -->
+    <section class="heritage reveal-on-scroll" id="heritage">
+        <div class="ornament">✦ ❖ ✦</div>
+
+        <h2 class="section-title">HERITAGE OF UTTARAKHAND</h2>
+
+        <p class="section-subtitle">Sacred places and historic architectural treasures of Devbhoomi.</p>
+
+        <div class="heritage-list">
+            <div class="heritage-card reveal-on-scroll delay-1">
+                <div class="heritage-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1582972236019-ea9d7c8f7f43?auto=format&fit=crop&w=900&q=85" alt="Kedarnath Temple">
+                </div>
+                <div class="heritage-info">
+                    <h3>KEDARNATH TEMPLE</h3>
+                    <p>One of the 12 sacred Jyotirlingas of Lord Shiva situated dramatically beneath the Kedarnath peak at 3,583 meters.</p>
+                </div>
+            </div>
+
+            <div class="heritage-card reveal-on-scroll delay-2">
+                <div class="heritage-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=85" alt="Badrinath">
+                </div>
+                <div class="heritage-info">
+                    <h3>BADRINATH</h3>
+                    <p>An ancient Mahavishnu temple along the Alaknanda River, surrounded by the Nar and Narayana mountain ranges.</p>
+                </div>
+            </div>
+
+            <div class="heritage-card reveal-on-scroll delay-3">
+                <div class="heritage-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85" alt="Valley of Flowers">
+                </div>
+                <div class="heritage-info">
+                    <h3>VALLEY OF FLOWERS</h3>
+                    <p>A UNESCO World Heritage alpine wonderland carpeted in endemic flora and pristine high-altitude glaciers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         FOOD
+    ========================= -->
+    <section class="food reveal-on-scroll" id="food">
+        <div class="ornament">❖</div>
+
+        <h2 class="section-title">FLAVORS OF UTTARAKHAND</h2>
+
+        <p class="section-subtitle">Traditional mountain recipes passed down through generations.</p>
+
+        <div class="food-grid">
+            <div class="food-card reveal-on-scroll delay-1">
+                <div class="food-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=500&q=80" alt="Kafuli">
+                </div>
+                <h3>KAFULI</h3>
+            </div>
+
+            <div class="food-card reveal-on-scroll delay-2">
+                <div class="food-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?auto=format&fit=crop&w=500&q=80" alt="Jhangora Ki Kheer">
+                </div>
+                <h3>JHANGORA KI KHEER</h3>
+            </div>
+
+            <div class="food-card reveal-on-scroll delay-3">
+                <div class="food-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=500&q=80" alt="Aloo Ke Gutke">
+                </div>
+                <h3>ALOO KE GUTKE</h3>
+            </div>
+
+            <div class="food-card reveal-on-scroll delay-4">
+                <div class="food-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=500&q=80" alt="Bhatt Ki Churkani">
+                </div>
+                <h3>BHATT KI CHURKANI</h3>
+            </div>
+
+            <div class="food-card reveal-on-scroll delay-5">
+                <div class="food-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=500&q=80" alt="Sisuna Saag">
+                </div>
+                <h3>SISUNA SAAG</h3>
+            </div>
+
+            <div class="food-card reveal-on-scroll delay-6">
+                <div class="food-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=500&q=80" alt="Bal Mithai">
+                </div>
+                <h3>BAL MITHAI</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         QUOTE
+    ========================= -->
+    <section class="quote reveal-on-scroll">
+        <blockquote>
+            “Uttarakhand is not just a place, it is a feeling of peace, devotion and belonging.”
+            <br>
+            <span style="font-size: 15px; letter-spacing: 3px; font-family: 'Cinzel', serif; color: var(--haldi); display: block; margin-top: 15px;">
+                — VIRASYA DEVBHOMI
+            </span>
+        </blockquote>
+    </section>
+
+    <!-- Floating Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to Top" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+    <footer>
+        <h2>VIRASYA</h2>
+        <p>Culture • Heritage • Legacy</p>
+        <p style="color: #c9a65d; font-size: 12px; margin-top: 4px;">Proud of our roots • Inspired by our culture.</p>
+        <div class="footer-nav">
+            <a href="index.html">Main Platform</a>
+            <a href="index.html#map">India Map</a>
+            <a href="index.html#culture">Culture</a>
+            <a href="index.html#heritage">Heritage Sites</a>
+            <a href="index.html#festivals">Festivals</a>
+        </div>
+    </footer>
+
+    <!-- Script for sticky navbar, scroll reveals, and 3D card tilt -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.getElementById('navbar');
+            const backToTopBtn = document.getElementById('backToTopBtn');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    if (nav) nav.classList.add('scrolled');
+                } else {
+                    if (nav) nav.classList.remove('scrolled');
+                }
+
+                if (backToTopBtn) {
+                    if (window.scrollY > 400) {
+                        backToTopBtn.classList.add('visible');
+                    } else {
+                        backToTopBtn.classList.remove('visible');
+                    }
+                }
+            }, { passive: true });
+
+            // Scroll Reveal Observer
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+
+                document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el));
+            } else {
+                document.querySelectorAll('.reveal-on-scroll').forEach((el) => el.classList.add('revealed'));
+            }
+
+            // 3D Card Tilt Interaction
+            if (!window.matchMedia("(hover: none)").matches) {
+                const tiltCards = document.querySelectorAll('.essence-card, .culture-card, .festival-card, .heritage-card, .food-card');
+                tiltCards.forEach((card) => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const rotateX = ((y - centerY) / centerY) * -5;
+                        const rotateY = ((x - centerX) / centerX) * 5;
+                        card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px)`;
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = '';
+                    });
+                });
+            }
+        });
+
+        window.VIRASYA_CURRENT_STATE = "Uttarakhand";
+    </script>
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html>

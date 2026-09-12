@@ -1,0 +1,65 @@
+[
+  {
+    "id": "traditions",
+    "title": "TRADITIONS",
+    "category": "sacred",
+    "tag": "Living Philosophy",
+    "badge": "Foundational Roots",
+    "image": "https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1000&q=85",
+    "description": "Ancient philosophies, familial devotion, and eternal values that have anchored Indian civilization and community life across millennia."
+  },
+  {
+    "id": "folk-music",
+    "title": "FOLK MUSIC",
+    "category": "arts",
+    "tag": "Melodies of Soil",
+    "badge": "Rhythms & Raags",
+    "image": "https://images.unsplash.com/photo-1598460354647-5e0b0a4e6a6f?auto=format&fit=crop&w=800&q=80",
+    "description": "Soulful songs of rural joy, desert ballads, devotional chants, and pastoral rhythms passed orally through centuries."
+  },
+  {
+    "id": "classical-dance",
+    "title": "CLASSICAL DANCE",
+    "category": "arts",
+    "tag": "Poetry in Motion",
+    "badge": "8 Classical Forms",
+    "image": "https://images.unsplash.com/photo-1533632359083-018c4c5f5d2a?auto=format&fit=crop&w=800&q=80",
+    "description": "Natyashastra traditions embodying divine storytelling through expressive Mudras, Bhavas, and intricate footwork."
+  },
+  {
+    "id": "traditional-clothing",
+    "title": "TRADITIONAL CLOTHING",
+    "category": "lifestyle",
+    "tag": "Woven Heritage",
+    "badge": "Textile Legacy",
+    "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80",
+    "description": "Royal silk sarees, handcrafted Kurtas, vibrant turbans, and intricate regional handloom weaving masterworks."
+  },
+  {
+    "id": "cuisine",
+    "title": "CUISINE",
+    "category": "lifestyle",
+    "tag": "Symphony of Spices",
+    "badge": "Flavors of India",
+    "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80",
+    "description": "A rich culinary map blending Ayurvedic principles, aromatic spices, and time-honored regional recipes."
+  },
+  {
+    "id": "languages",
+    "title": "LANGUAGES",
+    "category": "lifestyle",
+    "tag": "Ancient Dialects",
+    "badge": "22 Official Tongues",
+    "image": "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80",
+    "description": "Ancient Vedic Sanskrit, Brahmi epigraphs, and over 19,500 spoken mother tongues uniting a diverse nation."
+  },
+  {
+    "id": "rituals-customs",
+    "title": "RITUALS & CUSTOMS",
+    "category": "sacred",
+    "tag": "Sacred Observances",
+    "badge": "Sacred Ceremonies",
+    "image": "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&w=800&q=80",
+    "description": "Sacred evening Ganga Aartis, morning Vedic chants, and vibrant milestone rites celebrating nature, seasons, and life."
+  }
+]

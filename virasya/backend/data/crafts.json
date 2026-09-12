@@ -1,0 +1,30 @@
+[
+  {
+    "id": "warli-art",
+    "name": "WARLI ART",
+    "origin": "Maharashtra",
+    "description": "Ancient geometric tribal mural paintings using white rice pigment depicting circles of life, dances, and agrarian harvest rituals.",
+    "image": "https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": "madhubani",
+    "name": "MADHUBANI",
+    "origin": "Mithila, Bihar",
+    "description": "Distinctive folk art created with twigs, nibs, matchsticks, and natural dyes featuring mythological and natural motifs.",
+    "image": "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": "phulkari",
+    "name": "PHULKARI",
+    "origin": "Punjab",
+    "description": "Exquisite silk yarn embroidery ('flower work') on hand-spun cotton fabric reflecting the artistic soul of Punjab women.",
+    "image": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": "blue-pottery",
+    "name": "BLUE POTTERY",
+    "origin": "Jaipur, Rajasthan",
+    "description": "Turquoise-glazed quartz pottery with Persian origins, crafted without clay and fired with delicate floral and geometric motifs.",
+    "image": "https://images.unsplash.com/photo-1582561833407-b95380302a8b?auto=format&fit=crop&w=700&q=80"
+  }
+]
